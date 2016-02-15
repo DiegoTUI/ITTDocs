@@ -1,9 +1,9 @@
 type: object
 properties:
-  name:
+  xxname:
     type: string
     description: Error name
-  message: 
+  xxmessage: 
     type: string
     description: Error message
   httpStatus:

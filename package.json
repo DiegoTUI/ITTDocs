@@ -2,7 +2,7 @@
   "name": "ittdocs",
   "version": "0.0.1",
   "description": "Swagger documentation for the ITT project",
-  "main": "bin/single.js",
+  "main": "bin/single-ITTDocs.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com:DiegoTUI/ITTDocs.git"

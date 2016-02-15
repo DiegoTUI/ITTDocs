@@ -1,0 +1,16 @@
+type: object
+description: A geographic point defined by its coordinates.
+required:
+  - latitude
+  - longitude
+properties:
+  latitude:
+    type: number
+    format: double
+    description: The latitude of the point.
+    example: 35.0869444
+  longitude:
+    type: number
+    format: double
+    description: The longitude of the point.
+    example: -106.715555

@@ -1,0 +1,35 @@
+post:
+  tags:
+    - Booking
+  summary: Attempts to cancel a booking.
+  description: This operation attempts to cancel a booking already placed using the `id` field returned in the response of the `book-POST` or `book-GET` operations.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - in: header
+      name: x-access-token
+      required: true
+      type: string
+      description: Valid token needed to interact with the API. Read the **Auth** part of this API to understand how it works.
+    - in: body
+      name: body
+      description: The identification of the vehicle to cancel.
+      required: true
+      schema:
+        type: object
+        properties:
+          id:
+            type: string
+            description: The id of the vehicle you want to cancel as returned by the the `book-POST` or `book-GET` operations.
+            example: eyJzdXBwbGllciI6IkxlQ2FiIiwidGltZXN0YW1wIjoxNDUwMTgzMjg2OTg4LCJleHRyYSI6eyJpZCI6IjUyODY3ZGVhLTJjMmEtNDMyNS1hYmQzLTdlY2ZjZTkyM2NjNCJ9fQ==
+  responses:
+    '200':
+      description: A booking object.
+      schema:
+        $ref: '#/definitions/CancelResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

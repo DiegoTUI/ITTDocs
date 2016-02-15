@@ -1,0 +1,70 @@
+post:
+  tags:
+    - Booking
+  summary: Books one of the vehicles returned by the avail operation.
+  description: >
+    This operation books one of the vehicles returned by a valid avail request, identified by the `id` field returned in the response of the avail operation. The only compulsory fields of the body of this request are `id` and `payment`. However most of the vehicles will require extra information such as `customer.name` or `customer.phone`. This information is returned by the avail operation in the `requiredForBooking` field. Otherwise the request will fail.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - in: header
+      name: x-access-token
+      required: true
+      type: string
+      description: Valid token needed to interact with the API. Read the **Auth** part of this API to understand how it works.
+    - in: body
+      name: body
+      description: The identification of the vehicle to book. You **need to include** the `requiredForBooking` fields returned by avail.
+      required: true
+      schema:
+        type: object
+        properties:
+          id:
+            type: string
+            description: The id of the vehicle you want to book as returned by the avail operation.
+            example: eyJzdXBwbGllciI6IkxlQ2FiIiwidGltZXN0YW1wIjoxNDUwMTgzMjg2OTg4LCJleHRyYSI6eyJpZCI6IjUyODY3ZGVhLTJjMmEtNDMyNS1hYmQzLTdlY2ZjZTkyM2NjNCJ9fQ==
+          payment:
+            $ref: '#/definitions/PaymentType'
+  responses:
+    '200':
+      description: A booking object.
+      schema:
+        $ref: '#/definitions/BookPostResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'
+get:
+  tags:
+    - Booking
+  summary: Retrieves a booking already made.
+  description: >
+    This operation retrieves a booking already placed using the `id` field returned in the response of the `book[POST]` operation.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - in: header
+      name: x-access-token
+      required: true
+      type: string
+      description: Valid token needed to interact with the API. Read the **Auth** part of this API to understand how it works.
+    - in: query
+      name: id
+      required: true
+      type: string
+      description: >
+        The identification of the booking to retrieve as returned by the `id` field of the `book[POST]` operation.
+      required: true
+  responses:
+    '200':
+      description: A booking object.
+      schema:
+        $ref: '#/definitions/BookPostResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

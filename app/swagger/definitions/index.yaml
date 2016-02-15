@@ -1,0 +1,44 @@
+Error:
+    $ref: ./error.yaml
+ErrorResponse:
+    $ref: ./errorResponse.yaml
+GpsOrigin:
+    $ref: booking/gpsOrigin.yaml
+GpsDestination:
+    $ref: booking/gpsDestination.yaml
+PaymentType:
+    $ref: booking/paymentType.yaml
+Ride:
+    $ref: booking/ride.yaml
+Fare:
+    $ref: booking/fare.yaml
+Vehicle:
+    $ref: booking/vehicle.yaml
+VehicleType:
+    $ref: booking/vehicleType.yaml
+Booking:
+    $ref: booking/booking.yaml
+BookingStatus:
+    $ref: booking/bookingStatus.yaml
+ISODate:
+    $ref: booking/isoDate.yaml
+Currency:
+    $ref: booking/currency.yaml
+Supplier:
+    $ref: booking/supplier.yaml
+NearbySupplierResponse:
+    $ref: booking/nearbySupplierResponse.yaml
+AvailResponse:
+    $ref: booking/availResponse.yaml
+BookPostResponse:
+    $ref: booking/bookPostResponse.yaml
+BookGetResponse:
+    $ref: booking/bookGetResponse.yaml
+CancelResponse:
+    $ref: booking/cancelResponse.yaml
+TokenNewResponse:
+    $ref: auth/tokenNewResponse.yaml
+TokenRenewResponse:
+    $ref: auth/tokenRenewResponse.yaml
+UserRegisterResponse:
+    $ref: user/userRegisterResponse.yaml

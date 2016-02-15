@@ -1,0 +1,9 @@
+type: object
+description: A ride defined by its origin and/or destination.
+required:
+  - origin
+properties:
+  origin:
+    $ref: '#/definitions/GpsOrigin'
+  destination:
+    $ref: '#/definitions/GpsDestination'

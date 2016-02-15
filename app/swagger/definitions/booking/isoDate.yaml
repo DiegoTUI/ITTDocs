@@ -1,0 +1,2 @@
+type: string
+description: The [ISO 8601](http://www.iso.org/iso/home/standards/iso8601.htm) representation of a date

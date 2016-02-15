@@ -1,0 +1,14 @@
+/nearbySupplier:
+    $ref: booking/nearbySupplier.yaml
+/avail:
+    $ref: booking/avail.yaml
+/book:
+    $ref: booking/book.yaml
+/cancel:
+    $ref: booking/cancel.yaml
+/tokens/new:
+    $ref: auth/tokenNew.yaml
+/tokens/renew:
+    $ref: auth/tokenRenew.yaml
+/users/register:
+    $ref: user/userRegister.yaml

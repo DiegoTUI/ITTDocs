@@ -1,0 +1,24 @@
+type: object
+description: 'An estimation of the cost of a ride. This estimation becomes exact when estimate, lowEstimate and highEstimate are equal.'
+properties: 
+  estimate:
+    type: number
+    format: double
+    description: The estimated fare.
+  lowEstimate: 
+    type: number
+    format: double
+    description: A low estimation of the fare.
+  highEstimate: 
+    type: number
+    format: double
+    description: A high estimation of the fare.
+  type:
+    type: string
+    description: The type of fare.
+    enum: 
+      - per_ride
+      - per_km
+  currency:
+    type: string
+    description: '[ISO 4217](http://en.wikipedia.org/wiki/ISO_4217) currency code.'

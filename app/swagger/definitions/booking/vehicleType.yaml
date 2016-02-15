@@ -1,0 +1,60 @@
+type: object
+description: A complete description of the type of a vehicle
+properties:
+  identifier:
+    description: The identifier of this vehicle type in the supplier's jargon. Should **not** be used by the developer. It is used internally by ITT's server in order to map different vehicle types.
+  name:
+    type: string
+    description: The complete name of the vehicle type intended to be displayed to the user.
+  category:
+    type: string
+    description: The vehicle category
+    default: standard
+    enum:
+      - standard
+      - suv
+      - van
+      - limo
+  service:
+    type: string
+    description: The kind of service provided by the supplier
+    default: standard
+    enum:
+      - standard
+      - luxury
+      - executive
+      - shared
+  licence:
+    type: string
+    description: The kind of licence owned by the driver
+    default: taxi
+    enum:
+      - taxi
+      - black car
+      - unlicenced
+  passengers:
+    type: number
+    format: integer
+    description: The maximum number of passengers allowed in the car.
+  luggage:
+    type: object
+    description: The maximum number of (small/large) pieces of luggage allowed in the car.
+    properties:
+      small:
+        type: number
+        format: integer
+        description: The maximum number of small pieces of luggage that would fit in the car.
+      large:
+        type: number
+        format: integer
+        description: The maximum number of large pieces of luggage that would fit in the car.
+  badges:
+    type: array
+    description: Extra-features for this vehicle
+    items:
+      type: string
+      description: An extra-feature for a vehicle
+      enum:
+        - eco
+        - priority
+        - adapted

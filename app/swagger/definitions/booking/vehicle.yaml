@@ -1,0 +1,55 @@
+type: object
+description: A model of an available vehicle for a ride
+required:
+  - id
+  - icon
+  - vehicleType
+  - passengers
+  - payment
+  - supplier
+  - origin
+  - destination
+properties:
+  id: 
+    type: string
+    description: The identifier for this vehicle. Used to book this vehicle.
+  icon: 
+    type: string
+    description: A URL pointing at the supplier's icon.
+  delay: 
+    type: number
+    format: integer
+    description: Waiting time in seconds.
+  vehicleType: 
+    $ref: '#/definitions/VehicleType'
+  payment:
+    type: array
+    description: The set of allowed payment types.
+    items:
+      $ref: '#/definitions/PaymentType'
+  supplier:
+    type: string
+    description: The supplier name
+  origin:
+    type: object
+    description: The origin of the ride
+    properties:
+      coordinates:
+        $ref: '#/definitions/GpsOrigin'
+      address:
+        type: string
+  destination:
+    type: object
+    description: The destination of the ride
+    properties:
+      coordinates:
+        $ref: '#/definitions/GpsDestination'
+      address:
+        type: string
+  fare: 
+    $ref: '#/definitions/Fare'
+  requiredForBooking:
+    type: array
+    description: List of properties (given by their path) required for complete a booking. These properties will have to be included in the book (POST) request in order to successfully complete a booking.  
+    items: 
+      type: string

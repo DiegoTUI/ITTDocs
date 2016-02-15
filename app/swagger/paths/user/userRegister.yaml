@@ -1,0 +1,47 @@
+put:
+  tags:
+    - User
+  summary: Registers an anonymous user turning it into a registered user.
+  description: >
+    This operation registers an existing user by adding the phone number to its record. It receives the phone number along with optional name, surname and e-mail of the user. It does a number of checks in order to make sure that the user exists and the tuple (phoneNr, appId) is unique, and then registers the user in the system. It returns an empty response or an error if anything went wrong.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - in: body
+      name: body
+      description: 'The phone number along with optional name, surname and e-mail of the user.'
+      required: true
+      schema:
+        type: object
+        properties:
+          phone:
+            type: string
+            description: The phone number of the user.
+            required: true
+            example: +34654989291
+          name:
+            type: string
+            description: The name of the user.
+            required: false
+            example: Michael
+          surname:
+            type: string
+            description: The surname of the user.
+            required: false
+            example: Tufosa
+          email:
+            type: string
+            description: The email of the user.
+            required: false
+            example: tufosa@mymail.com
+  responses:
+    '200':
+      description: A successful response for the operation.
+      schema:
+        $ref: '#/definitions/UserRegisterResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

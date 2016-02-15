@@ -1,0 +1,23 @@
+swagger: '2.0'
+info:
+  $ref: ./info/index.yaml
+externalDocs:
+  description: Read carefully to understand how the different operations described in this API bind together.
+  url: 'http://www.taxitime.com/docs/bookingflow.pdf'
+host: localhost:9000
+basePath: /rest
+tags:
+  - name: Booking
+    description: List of the operations involved in the booking of a vehicle.
+  - name: User
+    description: List of the operations dealing with users.
+  - name: Auth
+    description: List of the operations dealing credentials and tokens.
+schemes:
+  - http
+  - https
+paths:
+  $ref: ./paths/index.yaml
+
+definitions:
+  $ref: ./definitions/index.yaml

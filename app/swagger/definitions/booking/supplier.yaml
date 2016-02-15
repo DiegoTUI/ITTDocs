@@ -1,0 +1,18 @@
+type: object
+description: A model of supplier available in an area
+required:
+  - icon
+  - payment
+  - supplier
+properties:
+  supplier: 
+    type: string
+    description: The name of the supplier.
+  icon: 
+    type: string
+    description: Url of the icon of the supplier.
+  payment: 
+    type: array
+    description: Payment types accepted by the supplier.
+    items: 
+      $ref: '#/definitions/PaymentType'

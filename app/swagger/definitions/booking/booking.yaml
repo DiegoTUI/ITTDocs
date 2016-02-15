@@ -1,0 +1,81 @@
+type: object
+description: A model of a booking
+required:
+  - id
+  - supplier
+  - phone
+  - status
+  - created
+  - vehicleType
+  - origin
+  - destination
+  - payment
+properties:
+  id: 
+    type: string
+    description: The identifier of the booking.
+  supplier:
+    type: string
+    description: The supplier name.
+  phone:
+    type: string
+    description: Phone number of the supplier.
+  status:
+    $ref: '#/definitions/BookingStatus'
+  created:
+    $ref: '#/definitions/ISODate'
+  vehicleType:
+    $ref: '#/definitions/VehicleType'
+  origin:
+    type: object
+    description: The origin of the ride
+    properties:
+      coordinates:
+        $ref: '#/definitions/GpsOrigin'
+      address:
+        type: string
+  destination:
+    type: object
+    description: The destination of the ride
+    properties:
+      coordinates:
+        $ref: '#/definitions/GpsDestination'
+      address:
+        type: string
+  payment:
+    type: object
+    description: The payment details for this booking
+    properties:
+      type:
+        $ref: '#/definitions/PaymentType'
+      amount:
+        type: number
+        format: double
+        description: The amount due.
+      currency:
+        $ref: '#/definitions/Currency'
+  delay: 
+    type: integer
+    description: Waiting time in seconds.
+  location:
+    type: object
+    description: The location of the vehicle.
+    properties:
+      latitude:
+        type: number
+        format: double
+        description: The latitude of the point.
+        example: 54.77635536
+      longitude:
+        type: number
+        format: double
+        description: The longitude of the point.
+        example: -103.776466
+  cancellation:
+    type: object
+    properties:
+      fee:
+        type: number
+        format: double
+      currency:
+        $ref: '#/definitions/Currency'

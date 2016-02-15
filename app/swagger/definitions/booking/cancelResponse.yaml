@@ -1,0 +1,25 @@
+type: object
+description: The response of the cancel operation
+properties:
+  success:
+    type: boolean
+  data:
+    type: object
+    properties:
+        supplier:
+          type: string
+          description: The supplier name
+        status:
+          $ref: '#/definitions/BookingStatus'
+        created:
+          $ref: '#/definitions/ISODate'
+        payment:
+          type: object
+          description: The payment performed after the cancellation.
+          properties:
+            amount:
+              type: number
+              format: double
+              description: The amount paid for the cancellation.
+            currency:
+              $ref: '#/definitions/Currency'

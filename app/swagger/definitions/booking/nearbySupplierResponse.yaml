@@ -1,0 +1,16 @@
+type: object
+description: The response of the nearbySupplier operation
+properties:
+  success:
+    type: boolean
+  data:
+    type: object
+    properties:
+        errors:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+        suppliers:
+            type: array
+            items:
+              $ref: '#/definitions/Supplier'

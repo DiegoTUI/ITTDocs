@@ -1,0 +1,7 @@
+type: string
+description: Accepted payment types
+default: app
+enum:
+    - app
+    - cash
+    - card

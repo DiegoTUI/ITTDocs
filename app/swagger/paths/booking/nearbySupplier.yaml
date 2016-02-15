@@ -1,0 +1,34 @@
+post:
+  tags:
+    - Booking
+  summary: Suppliers operating the area around a given point.
+  description: 'This operation retrieves and returns information about the suppliers operating in a certain point considered as the pick-up coordinates of a potential ride given by its coordinates.'
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - in: header
+      name: x-access-token
+      type: string
+      required: true
+      description: Valid token needed to interact with the API. Read the **Auth** part of this API to understand how it works.
+      required: true
+    - in: body
+      name: body
+      description: An object containing the geographic point of the pick-up of the ride. 
+      required: true
+      schema:
+        type: object
+        properties:
+          origin:
+            $ref: '#/definitions/GpsOrigin'
+  responses:
+    '200':
+      description: A set of suppliers available around a given point.
+      schema:
+        $ref: '#/definitions/NearbySupplierResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

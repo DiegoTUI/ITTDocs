@@ -1,0 +1,16 @@
+type: object
+description: The response of a tokens/new operation
+properties:
+  success:
+    type: boolean
+  data:
+    type: object
+    properties:
+        token:
+            type: string
+            description: The new token valid for requests
+            example: 6gkshcowbnw8bmsumm878
+        userId:
+            type: string
+            description: The user id of the newly created anonymous user.
+            example: gyt78ndgh9

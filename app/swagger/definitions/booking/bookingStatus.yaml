@@ -1,0 +1,15 @@
+type: string
+description: Possible booking statuses
+default: confirmed
+enum:
+    - dispatching
+    - confirmed
+    - unavailable
+    - cancelling
+    - cancelled
+    - way
+    - waiting
+    - running
+    - finished
+    - paying
+    - paid

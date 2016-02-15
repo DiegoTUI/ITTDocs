@@ -1,0 +1,16 @@
+type: object
+description: The response of a tokens/renew operation
+properties:
+  success:
+    type: boolean
+  data:
+    type: object
+    properties:
+        token:
+            type: string
+            description: The new token valid for requests
+            example: 6gkshcowbnw8bmsumm878
+        userId:
+            type: string
+            description: The user id of the user whose token has been renewed.
+            example: ValidUserId

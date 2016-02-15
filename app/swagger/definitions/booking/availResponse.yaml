@@ -1,0 +1,16 @@
+type: object
+description: The response of an avail operation
+properties:
+  success:
+    type: boolean
+  data:
+    type: object
+    properties:
+        errors:
+            type: array
+            items:
+              $ref: '#/definitions/Error'
+        vehicles:
+            type: array
+            items:
+              $ref: '#/definitions/Vehicle'

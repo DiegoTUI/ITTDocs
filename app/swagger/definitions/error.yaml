@@ -1,0 +1,15 @@
+type: object
+properties:
+  name:
+    type: string
+    description: Error name
+  message: 
+    type: string
+    description: Error message
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+  supplier:
+    type: string
+    description: Supplier name

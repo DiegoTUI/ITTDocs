@@ -1,0 +1,40 @@
+post:
+  tags:
+    - Auth
+  summary: Renews the token of an existing user.
+  description: >
+    This operation produces and returns a new token for an existing (either anonymous or registered) user of a certain app. The app will have to provide its credentials (`apiKey` and `apiSecret`) along with the existing user id (`userId`) in order to obtain a new token. The token is required as authentication by the **booking** operations. This operation also returns the `userId` of the existing user. This `userId` has to be the same as the one provided as a parameter of this operation.
+
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - in: body
+      name: body
+      description: A set of credentials to prove that a valid app is making the request along with a valid userId
+      required: true
+      schema:
+        type: object
+        properties:
+          apiKey:
+            type: string
+            description: A valid API key.
+            example: YourValidApiKey
+          apiSecret:
+            type: string
+            description: A valid API secret.
+            example: YourValidApiSecret
+          userId:
+            type: string
+            description: A userId identifying a valid existing user of the app.
+            example: ValidUserId
+  responses:
+    '200':
+      description: The new token for the existing userId.
+      schema:
+        $ref: '#/definitions/TokenRenewResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

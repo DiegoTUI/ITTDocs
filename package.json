@@ -8,13 +8,11 @@
     "url": "git+https://github.com:DiegoTUI/ITTDocs.git"
   },
   "dependencies": {
+    "debug": "^2.2.0",
     "prototypes": "^0.4.1",
     "express": "=4.10.7",
     "js-yaml": "^3.4.6",
     "json-refs": "^1.3.0"
-  },
-  "devDependencies": {
-    "debug": "^2.2.0"
   },
   "scripts": {
     "start": "node bin/single-ITTDocs.js",

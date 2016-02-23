@@ -58,7 +58,6 @@ get:
       type: string
       description: >
         The identification of the booking to retrieve as returned by the `id` field of the `book[POST]` operation.
-      required: true
   responses:
     '200':
       description: A booking object.

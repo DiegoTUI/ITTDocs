@@ -1,14 +1,14 @@
-/nearbySupplier:
+/api/v1/nearbySuppliers:
     $ref: booking/nearbySupplier.yaml
-/avail:
+/api/v1/avail:
     $ref: booking/avail.yaml
-/book:
+/api/v1/book:
     $ref: booking/book.yaml
-/cancel:
+/api/v1/cancel:
     $ref: booking/cancel.yaml
-/tokens/new:
+/auth/v1/tokens/new:
     $ref: auth/tokenNew.yaml
-/tokens/renew:
+/auth/v1/tokens/renew:
     $ref: auth/tokenRenew.yaml
-/users/register:
+/api/v1/users/register:
     $ref: user/userRegister.yaml

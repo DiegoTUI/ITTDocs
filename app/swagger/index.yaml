@@ -4,8 +4,8 @@ info:
 externalDocs:
   description: Read carefully to understand how the different operations described in this API bind together.
   url: 'http://www.taxitime.com/docs/bookingflow.pdf'
-host: localhost:9000
-basePath: /rest
+host: sandbox.taxitime.com
+basePath: /
 tags:
   - name: Booking
     description: List of the operations involved in the booking of a vehicle.
@@ -14,7 +14,6 @@ tags:
   - name: Auth
     description: List of the operations dealing credentials and tokens.
 schemes:
-  - http
   - https
 paths:
   $ref: ./paths/index.yaml

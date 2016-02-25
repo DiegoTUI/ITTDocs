@@ -9,11 +9,12 @@ required:
   - vehicleType
   - origin
   - destination
-  - payment
+  - paymentType
+  - fare
 properties:
   id: 
     type: string
-    description: The identifier of the booking.
+    description: The identifier of the booking. Used to retrieve (book-GET) or to cancel the booking.
   supplier:
     type: string
     description: The supplier name.
@@ -42,16 +43,18 @@ properties:
         $ref: '#/definitions/GpsDestination'
       address:
         type: string
+  paymentType:
+    $ref: '#/definitions/PaymentType'
+  fare: 
+    $ref: '#/definitions/Fare'
   payment:
     type: object
-    description: The payment details for this booking
+    description: The payment details for this booking. This field will only be returned **if there has been an actual payment in this booking**, either because the ride has finished and the fare has been paid, or because the book has been cancelled (and a cancellation fee paid) or because there has been a **PASSENGER-NO-SHOW** (with the corresponding fee).  
     properties:
-      type:
-        $ref: '#/definitions/PaymentType'
       amount:
         type: number
         format: double
-        description: The amount due.
+        description: The amount paid by the customer.
       currency:
         $ref: '#/definitions/Currency'
   delay: 
@@ -59,7 +62,7 @@ properties:
     description: Waiting time in seconds.
   location:
     type: object
-    description: The location of the vehicle.
+    description: The location of the vehicle at the moment of performing the request.
     properties:
       latitude:
         type: number
@@ -73,6 +76,16 @@ properties:
         example: -103.776466
   cancellation:
     type: object
+    description: The cancellation fee if the customer cancelled that booking right away.
+    properties:
+      fee:
+        type: number
+        format: double
+      currency:
+        $ref: '#/definitions/Currency'
+  noShow:
+    type: object
+    description: The PASSENGER-NO-SHOW fee for this booking.
     properties:
       fee:
         type: number

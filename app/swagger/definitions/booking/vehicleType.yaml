@@ -1,14 +1,12 @@
 type: object
 description: A complete description of the type of a vehicle
 properties:
-  identifier:
-    description: The identifier of this vehicle type in the supplier's jargon. Should **not** be used by the developer. It is used internally by ITT's server in order to map different vehicle types.
   name:
     type: string
     description: The complete name of the vehicle type intended to be displayed to the user.
   category:
     type: string
-    description: The vehicle category
+    description: The category of the physical vehicle that will pick up the customer
     default: standard
     enum:
       - standard

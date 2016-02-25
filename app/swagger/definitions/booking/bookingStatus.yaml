@@ -10,6 +10,9 @@ enum:
     - way
     - waiting
     - running
+    - drivernoshow
+    - passengernoshow
     - finished
     - paying
     - paid
+    - paidnoshow

@@ -5,13 +5,13 @@ required:
   - payment
   - supplier
 properties:
-  supplier: 
+  name: 
     type: string
     description: The name of the supplier.
   icon: 
     type: string
     description: Url of the icon of the supplier.
-  payment: 
+  paymentType: 
     type: array
     description: Payment types accepted by the supplier.
     items: 

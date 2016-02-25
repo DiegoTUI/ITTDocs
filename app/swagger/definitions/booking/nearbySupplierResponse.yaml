@@ -1,5 +1,5 @@
 type: object
-description: The response of the nearbySupplier operation
+description: The response of the nearbySuppliers operation
 properties:
   success:
     type: boolean

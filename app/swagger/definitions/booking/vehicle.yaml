@@ -8,7 +8,6 @@ required:
   - payment
   - supplier
   - origin
-  - destination
 properties:
   id: 
     type: string
@@ -19,17 +18,17 @@ properties:
   delay: 
     type: number
     format: integer
-    description: Waiting time in seconds.
+    description: Estimated waiting time for that vehicle to arrive in case it is booked (in seconds).
   vehicleType: 
     $ref: '#/definitions/VehicleType'
-  payment:
+  paymentTypes:
     type: array
-    description: The set of allowed payment types.
+    description: The list of allowed payment types for this vehicle.
     items:
       $ref: '#/definitions/PaymentType'
   supplier:
     type: string
-    description: The supplier name
+    description: The supplier's name
   origin:
     type: object
     description: The origin of the ride

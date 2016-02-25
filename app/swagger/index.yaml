@@ -20,3 +20,6 @@ paths:
 
 definitions:
   $ref: ./definitions/index.yaml
+
+parameters:
+  $ref: ./parameters/index.yaml

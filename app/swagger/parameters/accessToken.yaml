@@ -1,0 +1,6 @@
+in: header
+name: x-access-token
+type: string
+required: true
+default: '1234567890'
+description: Valid token needed to interact with the API. Read the **Auth** part of this API to understand how it works.

@@ -3,7 +3,7 @@ version: 1.0.0
 title: Taxi Time
 termsOfService: 'http://taxitime.com/terms.txt'
 contact:
-    email: dev@taxtime.com
+    email: dlafuente@hotelbeds.com
 license:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'

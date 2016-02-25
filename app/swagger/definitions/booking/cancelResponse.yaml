@@ -8,10 +8,10 @@ properties:
     properties:
         supplier:
           type: string
-          description: The supplier name
+          description: The supplier's name
         status:
           $ref: '#/definitions/BookingStatus'
-        created:
+        date:
           $ref: '#/definitions/ISODate'
         payment:
           type: object

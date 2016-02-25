@@ -3,7 +3,10 @@ post:
     - Booking
   summary: Books one of the vehicles returned by the avail operation.
   description: >
-    This operation books one of the vehicles returned by a valid avail request, identified by the `id` field returned in the response of the avail operation. The only compulsory fields of the body of this request are `id` and `paymentType`. However most of the vehicles will require extra information such as `customer.name` or `customer.phone`. This information is returned by the avail operation in the `requiredForBooking` field. If you do not include this extra required information, the request will fail.
+    This operation books one of the vehicles returned by a valid avail request, identified by the `id` field returned in the response of the avail operation. The only compulsory fields of the body of this request are `id`, `paymentType` and `customer.phone`. However most of the vehicles will require extra information such as `customer.name` or `customer.phone`. This information is returned by the avail operation in the `requiredForBooking` field. If you do not include this extra required information, the request will fail.
+
+
+    **If the selected `paymentType` is `app`**, the request has to include the parameter `customer.token`, which is one of the user's tokenized credit card. This tokenized credit card is obtained through the `[GET]paymentMethods` operation in **User**.
   consumes:
     - application/json
   produces:
@@ -23,6 +26,27 @@ post:
             example: eyJzdXBwbGllciI6IkxlQ2FiIiwidGltZXN0YW1wIjoxNDUwMTgzMjg2OTg4LCJleHRyYSI6eyJpZCI6IjUyODY3ZGVhLTJjMmEtNDMyNS1hYmQzLTdlY2ZjZTkyM2NjNCJ9fQ==
           paymentType:
             $ref: '#/definitions/PaymentType'
+          customer:
+            type: object
+            description: Required data about the customer
+            properties:
+              phone:
+                type: string
+                description: The full (including country and area codes) phone number of the user.
+                example: '+34666754569'
+              firstname:
+                type: string
+                description: The first name of the customer
+                example: Michael
+              email:
+                type: string
+                description: The email of the user
+                example: 'michasel@mymail.com'
+              token:
+                type: string
+                description: A tokenized credit card to perform the payment. Only needed in those bookings whose `paymentType` is `app`
+                example: testCardToken
+
   responses:
     '200':
       description: A booking object.

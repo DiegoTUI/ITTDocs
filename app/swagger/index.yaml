@@ -1,9 +1,6 @@
 swagger: '2.0'
 info:
   $ref: ./info/index.yaml
-externalDocs:
-  description: Read carefully to understand how the different operations described in this API bind together.
-  url: 'http://www.taxitime.com/docs/bookingflow.pdf'
 host: sandbox.taxitime.com
 basePath: /
 tags:

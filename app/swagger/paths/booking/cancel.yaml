@@ -22,7 +22,7 @@ post:
             example: eyJzdXBwbGllciI6IkxlQ2FiIiwidGltZXN0YW1wIjoxNDUwMTgzMjg2OTg4LCJleHRyYSI6eyJpZCI6IjUyODY3ZGVhLTJjMmEtNDMyNS1hYmQzLTdlY2ZjZTkyM2NjNCJ9fQ==
   responses:
     '200':
-      description: A booking object.
+      description: The cancellation response.
       schema:
         $ref: '#/definitions/CancelResponse'
     '400':

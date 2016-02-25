@@ -8,11 +8,7 @@ post:
   produces:
     - application/json
   parameters:
-    - in: header
-      name: x-access-token
-      required: true
-      type: string
-      description: Valid token needed to interact with the API. Read the **Auth** part of this API to understand how it works.
+    - $ref: '#/parameters/AccessToken'
     - in: body
       name: body
       description: The identification of the vehicle to cancel.

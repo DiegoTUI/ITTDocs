@@ -1,5 +1,5 @@
 /api/v1/nearbySuppliers:
-    $ref: booking/nearbySupplier.yaml
+    $ref: booking/nearbySuppliers.yaml
 /api/v1/avail:
     $ref: booking/avail.yaml
 /api/v1/book:

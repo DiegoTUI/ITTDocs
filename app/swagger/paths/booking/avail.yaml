@@ -12,11 +12,7 @@ post:
   produces:
     - application/json
   parameters:
-    - in: header
-      name: x-access-token
-      type: string
-      required: true
-      description: Valid token needed to interact with the API. Read the **Auth** part of this API to understand how it works.
+    - $ref: '#/parameters/AccessToken'
     - in: body
       name: body
       description: A ride defined by its origin and/or destination. Destination is optional.

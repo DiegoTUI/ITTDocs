@@ -47,13 +47,7 @@ properties:
     description: The payment details for this booking
     properties:
       type:
-        type: string
-        description: Accepted payment types
-        default: app
-        enum:
-            - app
-            - cash
-            - card
+        $ref: '#/definitions/PaymentType'
       amount:
         type: number
         format: double

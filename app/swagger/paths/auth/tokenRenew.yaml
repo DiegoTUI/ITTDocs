@@ -20,15 +20,15 @@ post:
           apiKey:
             type: string
             description: A valid API key.
-            example: YourValidApiKey
+            example: validApiKeyInYourDB
           apiSecret:
             type: string
             description: A valid API secret.
-            example: YourValidApiSecret
+            example: validApiSecretInYourDB
           userId:
             type: string
             description: A userId identifying a valid existing user of the app.
-            example: ValidUserId
+            example: yge6oicwjb673hbdiikm8
   responses:
     '200':
       description: The new token for the existing userId.

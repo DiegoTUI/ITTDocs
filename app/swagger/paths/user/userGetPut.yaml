@@ -1,0 +1,83 @@
+get:
+  tags:
+    - User
+  summary: Retrieves the specified fields of the user enclosed by the token.
+  description: >
+    This operation retrieves and returns the **existing** `fields` specified in the query of the user referenced by the token and returns it. If `fields` is not specified in the query, then the fields marked as default in the following list are returned:
+      - gender
+      - userId (default)
+      - name (default)
+      - surname (default)
+      - phone (default)
+      - email (default)
+      - city
+      - country
+      - avatar
+      - tags
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - $ref: '#/parameters/AccessToken'
+    - in: query
+      name: fields
+      required: false
+      type: string
+      description: >
+        A space-separated string with the fields to be returned. If omitted, then the default parameters are returned (see description above).
+  responses:
+    '200':
+      description: A successful response for the operation.
+      schema:
+        $ref: '#/definitions/UserGetResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'
+put:
+  tags:
+    - User
+  summary: Updates the user specified by the token.
+  description: >
+    This operation updates the name, surname, email and/or avatar of the user specified in the token.
+  consumes:
+    - application/json
+    - multipart/form-data
+    - image/jpeg
+    - image/png
+  produces:
+    - application/json
+  parameters:
+    - $ref: '#/parameters/AccessToken'
+    - in: body
+      name: body
+      required: true
+      schema:
+        type: object
+        properties:
+          name:
+            type: string
+            description: The new user's name.
+            example: John
+          surname:
+            type: string
+            description: The new user's surname.
+            example: Doe
+          email:
+            type: string
+            description: The new user's email.
+            example: doe@john.com
+    - in: formData
+      description: User avatar image file uploaded to the server. The Content-Type should be set to image/jpeg or image/png depending on the file.
+      name: avatar
+      type: file
+  responses:
+    '200':
+      description: A successful response for the operation.
+      schema:
+        $ref: '#/definitions/UserPutResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

@@ -1280,3 +1280,17 @@
   text-align: center;
   padding-top: 10px;
 }
+
+/* Luca */
+.swagger-section #header #logo {
+  background: transparent url(http://taxitime.com/wp-content/uploads/2016/03/logo-taxitime-DEF.png) no-repeat left center;
+  padding: 20px 0 20px 190px;
+}
+#header{
+  background-color: black !important;
+}
+.swagger-section #explore {
+    background-color: #f4c351;
+    color: black;
+}
+/* Luca */

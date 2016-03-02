@@ -4,6 +4,9 @@ put:
   summary: Registers an anonymous user turning it into a registered user.
   description: >
     This operation registers an existing user by adding the phone number to its record. It receives the phone number along with optional name, surname and e-mail of the user. It does a number of checks in order to make sure that the user exists and the tuple (phoneNr, appId) is unique, and then registers the user in the system. It returns an empty response or an error if anything went wrong.
+
+
+    When the phone number is registered, **an SMS is sent to that number in order to verify it**. The user should input the number received and the app **must validate** the number through the operation `users/validate`.
   consumes:
     - application/json
   produces:

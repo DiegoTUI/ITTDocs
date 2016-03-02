@@ -9,6 +9,7 @@ put:
   produces:
     - application/json
   parameters:
+    - $ref: '#/parameters/AccessToken'
     - in: body
       name: body
       description: 'The phone number along with optional name, surname and e-mail of the user.'

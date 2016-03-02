@@ -1,0 +1,21 @@
+get:
+  tags:
+    - User
+  summary: Retrieves the DB id of the user specifief by the token.
+  description: >
+    This operation retrieves the DB `_id` of the user referenced by the token and returns it. This `_id` will be needed to perform other user operations.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - $ref: '#/parameters/AccessToken'
+  responses:
+    '200':
+      description: A successful response for the operation.
+      schema:
+        $ref: '#/definitions/UserGetResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

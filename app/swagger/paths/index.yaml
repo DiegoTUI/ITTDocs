@@ -10,5 +10,7 @@
     $ref: auth/tokenNew.yaml
 /auth/v1/tokens/renew:
     $ref: auth/tokenRenew.yaml
+/api/v1/users:
+    $ref: user/userGet.yaml
 /api/v1/users/register:
     $ref: user/userRegister.yaml

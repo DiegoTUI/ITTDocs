@@ -42,3 +42,5 @@ TokenRenewResponse:
     $ref: auth/tokenRenewResponse.yaml
 UserRegisterResponse:
     $ref: user/userRegisterResponse.yaml
+UserGetResponse:
+    $ref: user/userGetResponse.yaml

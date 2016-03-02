@@ -46,3 +46,5 @@ UserGetResponse:
     $ref: user/userGetResponse.yaml
 UserValidateResponse:
     $ref: user/userValidateResponse.yaml
+PushTokenResponse:
+    $ref: user/pushTokenResponse.yaml

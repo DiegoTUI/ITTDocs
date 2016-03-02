@@ -1,0 +1,40 @@
+put:
+  tags:
+    - User
+  summary: Registers a new push token (for push notifications) with Android or iOS.
+  description: >
+    This operation registers a new push token for the user. This push token will allow the user to receive push notifications in his phone, even when the app is running in background.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - $ref: '#/parameters/AccessToken'
+    - in: body
+      name: body
+      required: true
+      schema:
+        type: object
+        properties:
+          pushToken:
+            type: string
+            description: The push token obtained by your app in either Google or Apple to allow sending push notifications.
+            required: true
+            example: YGdeyt&yebbd76vffsqmcidwj
+          platform:
+            type: string
+            description: The name of the platform for the push token.
+            default: ios
+            enum:
+              - ios
+              - android
+
+  responses:
+    '200':
+      description: A successful response for the operation.
+      schema:
+        $ref: '#/definitions/PushTokenResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

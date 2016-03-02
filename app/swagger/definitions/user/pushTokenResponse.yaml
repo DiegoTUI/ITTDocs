@@ -1,0 +1,5 @@
+type: object
+description: The response of a users/pushToken operation
+properties:
+  success:
+    type: boolean

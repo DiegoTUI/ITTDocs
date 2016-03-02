@@ -16,3 +16,5 @@
     $ref: user/userRegister.yaml
 /api/v1/users/validate:
     $ref: user/userValidate.yaml
+/api/v1/users/pushToken:
+    $ref: user/pushToken.yaml

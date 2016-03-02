@@ -44,3 +44,5 @@ UserRegisterResponse:
     $ref: user/userRegisterResponse.yaml
 UserGetResponse:
     $ref: user/userGetResponse.yaml
+UserValidateResponse:
+    $ref: user/userValidateResponse.yaml

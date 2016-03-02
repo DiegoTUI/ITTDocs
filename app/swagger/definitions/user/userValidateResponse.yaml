@@ -1,0 +1,12 @@
+type: object
+description: The response of a users/validate operation
+properties:
+  success:
+    type: boolean
+  data:
+    type: object
+    properties:
+      userId:
+        type: string
+        description: The id of the validated user
+        example: ygde67ewfbwuyrfg745tb5iiir8y

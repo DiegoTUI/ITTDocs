@@ -14,3 +14,5 @@
     $ref: user/userGet.yaml
 /api/v1/users/register:
     $ref: user/userRegister.yaml
+/api/v1/users/validate:
+    $ref: user/userValidate.yaml

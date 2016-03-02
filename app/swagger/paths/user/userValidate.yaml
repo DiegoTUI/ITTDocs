@@ -1,0 +1,32 @@
+put:
+  tags:
+    - User
+  summary: Validates the SMS received by a user after beind registered.
+  description: >
+    This operation validates the SMS received by the user after being registered through the `users/register` operation.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - $ref: '#/parameters/AccessToken'
+    - in: body
+      name: body
+      required: true
+      schema:
+        type: object
+        properties:
+          smsCode:
+            type: string
+            description: The SMS code received by the user.
+            required: true
+            example: 653992
+  responses:
+    '200':
+      description: A successful response for the operation.
+      schema:
+        $ref: '#/definitions/UserValidateResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

@@ -6,7 +6,15 @@ properties:
   data:
     type: object
     properties:
-      _id:
+      name:
         type: string
-        description: The DB id of the user
-        example: 56rftdgye67010yhkayhn
+        description: The name of the user
+        example: Michael
+      surname:
+        type: string
+        description: The surname of the user
+        example: Tufosa
+      phone:
+        type: string
+        description: The phone number of the user
+        example: +34663565423

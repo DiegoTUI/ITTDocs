@@ -1,15 +1,31 @@
 get:
   tags:
     - User
-  summary: Retrieves the DB id of the user specifief by the token.
+  summary: Retrieves the specified fields of the user enclosed by the token.
   description: >
-    This operation retrieves the DB `_id` of the user referenced by the token and returns it. This `_id` will be needed to perform other user operations.
+    This operation retrieves and returns the **existing** `fields` specified in the query of the user referenced by the token and returns it. If `fields` is not specified in the query, then the fields marked as default in the following list are returned:
+      - gender
+      - userId (default)
+      - name (default)
+      - surname (default)
+      - phone (default)
+      - email (default)
+      - city
+      - country
+      - avatar
+      - tags
   consumes:
     - application/json
   produces:
     - application/json
   parameters:
     - $ref: '#/parameters/AccessToken'
+    - in: query
+      name: fields
+      required: false
+      type: string
+      description: >
+        A space-separated string with the fields to be returned. If omitted, then the default parameters are returned (see description above).
   responses:
     '200':
       description: A successful response for the operation.

@@ -20,3 +20,5 @@
     $ref: user/pushToken.yaml
 /api/v1/users/tags:
     $ref: user/addTag.yaml
+/api/v1/users/tags/{_id}:
+    $ref: user/modifyDeleteTag.yaml

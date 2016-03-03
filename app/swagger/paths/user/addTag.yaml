@@ -3,7 +3,7 @@ post:
     - User
   summary: Adds a tag to be used in bookings for the user.
   description: >
-    This operation adds a new tag for this user. This tag can be used to label the bookings of the user.
+    This operation adds a new tag for the user specified by the token. This tag can be used to label the bookings of the user.
   consumes:
     - application/json
   produces:

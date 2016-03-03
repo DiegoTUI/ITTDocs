@@ -1,0 +1,5 @@
+type: object
+description: The response of a [DELETE]users/tags/{_id} operation
+properties:
+  success:
+    type: boolean

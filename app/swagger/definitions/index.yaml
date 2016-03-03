@@ -52,3 +52,5 @@ PushTokenResponse:
     $ref: user/pushTokenResponse.yaml
 AddTagResponse:
     $ref: user/addTagResponse.yaml
+DeleteTagResponse:
+    $ref: user/deleteTagResponse.yaml

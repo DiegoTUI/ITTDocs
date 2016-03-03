@@ -1,0 +1,17 @@
+type: object
+description: A tag to classify bookings
+properties:
+  _id:
+    type: string
+    description: The id of the tag (needed to modify or delete the tag)
+    example: 56dfgt93jkhbnc7363gdt
+  tag:
+    type: string
+    description: The tag name.
+    required: true
+    example: Leisure
+  color:
+    type: string
+    description: The color of the tag in HEX format.
+    required: true
+    example: '#FFCC44'

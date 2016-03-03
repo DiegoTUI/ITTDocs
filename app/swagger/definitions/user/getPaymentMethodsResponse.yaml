@@ -1,0 +1,9 @@
+type: object
+description: The response of a users/paymentMethods (POST, PUT and GET) operation
+properties:
+  success:
+    type: boolean
+  data:
+    type: array
+    items:
+      $ref: '#/definitions/PaymentMethod'

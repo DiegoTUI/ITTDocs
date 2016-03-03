@@ -1,0 +1,59 @@
+type: object
+description: A model of a tokenized payment method
+properties:
+  _id:
+    type: string
+    description: The id of the payment method
+    example: 5678dtewdvrleufgbft7884
+  type: 
+    type: string
+    description: The type of payment method (so far, only Credit Card is accepted)
+    default: cc
+    enum:
+      - cc
+  name:
+    type: string
+    description: The name of the payment method.
+    example: My Visa
+  ccType:
+    type: string
+    description: The credit card type
+    default: visa
+    enum:
+      - visa,
+      - master,
+      - american_express,
+      - discover,
+      - jcb,
+      - dinners_club,
+      - dankort
+  ccPrintedName:
+    type: string
+    description: The name as printed in the credit card
+    example: Michael
+  ccPrintedSurame:
+    type: string
+    description: The surname as printed in the credit card
+    example: Tufosa
+  ccObfuscatedNumber:
+    type: string
+    description: Obfuscated credit card number
+    example: '************4116'
+  ccMonth:
+    type: string
+    description: Credit card expiration month
+    example: '03'
+  ccYear:
+    type: string
+    description: Credit card expiration year
+    example: '2036'
+  ccSecureVault:
+    type: string
+    description: The secure vault where the card is stored (only spreedly so far)
+    default: spreedly
+    enum:
+      - spreedly
+  ccSecureVaultAddResult:
+    type: string
+    description: The response on the secure vault when the card was added
+    example: '<success>true</success>'

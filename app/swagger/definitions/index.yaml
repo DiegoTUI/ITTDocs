@@ -54,3 +54,13 @@ AddTagResponse:
     $ref: user/addTagResponse.yaml
 DeleteTagResponse:
     $ref: user/deleteTagResponse.yaml
+PaymentMethod:
+    $ref: user/paymentMethod.yaml
+UserTag:
+    $ref: user/userTag.yaml
+User:
+    $ref: user/user.yaml
+AddPaymentMethodResponse:
+    $ref: user/addPaymentMethodResponse.yaml
+GetPaymentMethodsResponse:
+    $ref: user/getPaymentMethodsResponse.yaml

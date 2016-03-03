@@ -1,0 +1,52 @@
+type: object
+description: The model of a user
+properties:
+  userId:
+    type: string
+    description: The unique id identifying the user
+    example: 7yehd67633idjnchhgsdfgwoj91
+  gender:
+    type: string
+    description: The gender of the user
+    default: female
+    enum:
+      - female
+      - male 
+  name:
+    type: string
+    description: The user's name.
+    example: John
+  surname:
+    type: string
+    description: The user's surname.
+    example: Doe
+  phone:
+    type: string
+    description: The user's phone number.
+    example: '+34665879223'
+  email:
+    type: string
+    description: The user's email.
+    example: doe@john.com
+  city:
+    type: string
+    description: The user's city.
+    example: Gotham
+  country:
+    type: string
+    description: The user's country.
+    example: Westeros
+  avatar:
+    type: string
+    description: The link to the user's avatar.
+    example: http://myavatar.com/myavatar.jpg
+  paymentMethods:
+    type: array
+    description: A list of the payment methods registered by this user.
+    items:
+      $ref: '#/definitions/PaymentMethod'
+  tags:
+    type: array
+    description: A list of the tags registered by this user to classify his bookings
+    items:
+      $ref: '#/definitions/UserTag'

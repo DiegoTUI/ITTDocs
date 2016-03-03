@@ -1,9 +1,41 @@
-description: TaxiTime API Documentation.
 version: 1.0.0
-title: Taxi Time
+title: TaxiTime API
+description: |
+    This is the first version of the TaxiTime API, an aggregator of instant transportation around the world that will allow your customers to search, compare and find their best ride!!
+
+    Taxi aggregates an increasing number of suppliers around the world. All of them provide **instant transportation** services, that is, rides for **here** and **now**.
+
+    First thing you need to do is get your credentials. So far, this proccess is manual, so please, [drop us an e-mail](mailto:dlafuente@hotelbeds.com?subject=Credentials for TaxiTime API), and we'll get back to you as soon as we can.
+
+    We have defined three types of operations in our system. All of them are documented and can be tested here:
+    - **Auth**: all the clients integrated with the TaxiTime API have a unique set of credentials. These credentials are used to obtain and renew a token, and the token is needed to perform any of the other requests. The Auth block defines all the operations dealing with tokens.
+    - **Booking**: the operations dealing with the **booking flow**. This includes the operations to get availability of vehicles. See the **Booking Flow** chapter for more info.
+    - **User**: the operations dealing with **user management** (register a usser, add a payment method, update a user, gets the user's bookings, etc). User management is *optional* in TaxiTime, meaning that you can be integrated with us, and NOT use our user management operations. In that case, you will have to have your own user management system.
+
+    We have set up two environments: **SANDBOX** and **LIVE**. Both are identical, with the exception that in the LIVE environment, you will be actually booking a real taxi ;-). Your will need to request a different set of credentials for each environment. We'll give you SANDBOX credentials for your development&testing stage, and LIVE credentials when you are ready to be launched. The URL to prepend to the requests in the SANDBOX environment is:
+    ```
+    https://sandbox.taxitime.com
+    ```
+    whereas the one for the LIVE environment is:
+    ```
+    https://live.taxitime.com
+    ```
+    ##**Authentication**
+    You have your set of credentials. Now what? For all the operations in the **Booking** and **User** blocks, you will need to send a token. This token is obtained through the `/auth/v1/tokens/new` operation (defined in the **Auth** block). This operation **should only be called once** (if you are NOT using our user management system, you may call it multiple times), the first time your user opens your app. This operation not only returns a token, **but also creates a new anonymous user**, and returns its `userId` along with the token. Once you have this `userId` you just need to call `/auth/v1/tokens/renew` to renew the token when it expires.
+    ##**The Booking Flow**
+    Our booking flow is pretty simple nad thoroughly documented in the **Booking** block of operations. Here is how it works:
+    - The first thing to do is find out how many and which **taxi suppliers** operate around the loaction of your user. Call `/api/v1/nearbySuppliers` with just a pair of coordinates and you'll get a list with all the suppliers operating around that area.
+    - Then you will have to query the system about the **availability** of vehicles **for now**. By sending a request to the `/api/v1/avail` operation with the origin, and optionally the destination of the ride, you will receive the list of vehicles available to pick up your customer.
+    - Use the `id` of one of the vehicles returned in the availability in order to **book** it, using the `POST /api/v1/book` operation.
+    - **Check the status** of your booking sending the `bookingId` received from the bookPOST operation to the `GET /api/v1/book` operation.
+    - You can also **cancel** the booking sending the same `bookingId` to the `/api/v1/cancel` operation
+
+    ##**Payment**
+    We integrate two kinds of suppliers regarding payment: those who allows the customer to pay the ride through the app (**payment-in-app**), and those who doesn't (**payment-in-car** - the customer will pay the ride to the driver). We don't need to do anything to enable payment in the payment-in-car suppliers; payment is done physically by the customer handing the money to the driver. 
+
+    For the payment-in-app suppliers, we use [**Spreedly**](https://spreedly.com/), and if you want to integrate our services in your app or web using this API, **you will need to use [Spreedly's iFrame](https://docs.spreedly.com/guides/adding-payment-methods/iframe/) in your app** in order to tokenize credit cards. Why do you need to do that? Because we don't store credit cards in our end, and we use Spreedly's credit card tokens to perform payments via app. Don't afraid of integrating iFrames in your app. We've done it before and we can help you do it.
+    ##**User Management**
+    TaxiTime provides a complete set of operations to manage the users of your app in our backend. We use the phone number as a primary key to identify a user and we provide the means to validate the phone number using an SMS code. You can add and update basic information (name, surname, e-mail) to your users, add and update payment methods (i.e. credit cards), add tags to classify their bookings, list their bookings, provide them with receipts, etc.
+
+    Using our user management system is optional, you can still integrate with us using just the operations from the **Auth** and **Booking** blocks and do the user management yourself. Anyway we encourage you to use ours. It's already proven and fit for purpose.
 termsOfService: 'http://taxitime.com/terms.txt'
-contact:
-    email: dlafuente@hotelbeds.com
-license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'

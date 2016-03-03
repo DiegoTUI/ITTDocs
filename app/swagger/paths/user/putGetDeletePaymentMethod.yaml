@@ -1,46 +1,31 @@
-post:
+put:
   tags:
     - User
-  summary: Adds a payment method to the specified user.
+  summary: Modifies a payment method to the specified user.
   description: >
-    This operation adds a new payment method for the user specified by the token.
+    This operation modifies an existing payment method for the user specified by the token.
   consumes:
     - application/json
   produces:
     - application/json
   parameters:
     - $ref: '#/parameters/AccessToken'
+    - in: path
+      name: _id
+      required: true
+      type: string
+      description: The `_id` of the payment method
     - in: body
       name: body
       required: true
       schema:
         type: object
         properties:
-          type: 
-            type: string
-            description: The type of payment method (so far, only Credit Card is accepted)
-            default: cc
-            required: true
-            enum:
-              - cc
           name:
             type: string
             description: The name of the payment method.
             required: true
             example: My Visa
-          ccType:
-            type: string
-            description: The credit card type
-            required: true
-            default: visa
-            enum:
-              - visa,
-              - master,
-              - american_express,
-              - discover,
-              - jcb,
-              - dinners_club,
-              - dankort
           ccPrintedName:
             type: string
             description: The name as printed in the credit card
@@ -51,11 +36,6 @@ post:
             description: The surname as printed in the credit card
             required: true
             example: Tufosa
-          ccObfuscatedNumber:
-            type: string
-            description: Obfuscated credit card number
-            required: true
-            example: '************4116'
           ccMonth:
             type: string
             description: Credit card expiration month
@@ -66,19 +46,6 @@ post:
             description: Credit card expiration year
             required: true
             example: '2036'
-          ccSecureVault:
-            type: string
-            description: The secure vault where the card is stored (only spreedly so far)
-            required: true
-            default: spreedly
-            enum:
-              - spreedly
-          ccSecureVaultAddResult:
-            type: string
-            description: The response on the secure vault when the card was added
-            required: true
-            example: '<success>true</success>'
-
   responses:
     '200':
       description: A successful response for the operation.
@@ -91,20 +58,51 @@ post:
 get:
   tags:
     - User
-  summary: Lists the payment methods of the user specified by the token.
+  summary: Gets a payment method of the user specified by the token.
   description: >
-    This operation lists the payment methods of the user specified by the token.
+    This operation gets the payment method specified in the paths of the user specified by the token.
   consumes:
     - application/json
   produces:
     - application/json
   parameters:
     - $ref: '#/parameters/AccessToken'
+    - in: path
+      name: _id
+      required: true
+      type: string
+      description: The `_id` of the payment method
   responses:
     '200':
       description: A successful response for the operation.
       schema:
-        $ref: '#/definitions/GetPaymentMethodsResponse'
+        $ref: '#/definitions/GetPaymentMethodResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'
+delete:
+  tags:
+    - User
+  summary: Deletes a payment method of the user specified by the token.
+  description: >
+    This operation deletes the payment method specified in the paths of the user specified by the token.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - $ref: '#/parameters/AccessToken'
+    - in: path
+      name: _id
+      required: true
+      type: string
+      description: The `_id` of the payment method
+  responses:
+    '200':
+      description: A successful response for the operation.
+      schema:
+        $ref: '#/definitions/DeletePaymentMethodResponse'
     '400':
       description: Error
       schema:

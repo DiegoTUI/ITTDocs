@@ -31,7 +31,7 @@ properties:
     type: string
     description: The name as printed in the credit card
     example: Michael
-  ccPrintedSurame:
+  ccPrintedSurname:
     type: string
     description: The surname as printed in the credit card
     example: Tufosa

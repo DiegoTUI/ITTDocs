@@ -64,3 +64,7 @@ AddPaymentMethodResponse:
     $ref: user/addPaymentMethodResponse.yaml
 GetPaymentMethodsResponse:
     $ref: user/getPaymentMethodsResponse.yaml
+GetPaymentMethodResponse:
+    $ref: user/getPaymentMethodResponse.yaml
+DeletePaymentMethodResponse:
+    $ref: user/deletePaymentMethodResponse.yaml

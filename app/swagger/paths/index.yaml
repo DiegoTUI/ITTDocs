@@ -24,3 +24,5 @@
     $ref: user/modifyDeleteTag.yaml
 /api/v1/users/paymentMethods:
     $ref: user/addGetPaymentMethods.yaml
+/api/v1/users/paymentMethods/{_id}:
+    $ref: user/putGetDeletePaymentMethod.yaml

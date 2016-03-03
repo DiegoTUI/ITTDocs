@@ -1,0 +1,5 @@
+type: object
+description: The response of a users/paymentMethods/{_id} (DELETE) operation
+properties:
+  success:
+    type: boolean

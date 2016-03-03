@@ -1,0 +1,20 @@
+type: object
+description: The response of a users/tags (PUT and GET) operation
+properties:
+  success:
+    type: boolean
+  data:
+    type: object
+    properties:
+      _id:
+        type: string
+        description: The id of the tag (needed to modify or delete the tag)
+        example: 56dfgt93jkhbnc7363gdt
+      tag:
+        type: string
+        description: The tag name
+        example: Leisure
+      color:
+        type: string
+        description: The tag color in HEX format
+        example: '#FFCC44'

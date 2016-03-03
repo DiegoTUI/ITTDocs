@@ -50,3 +50,5 @@ UserValidateResponse:
     $ref: user/userValidateResponse.yaml
 PushTokenResponse:
     $ref: user/pushTokenResponse.yaml
+AddTagResponse:
+    $ref: user/addTagResponse.yaml

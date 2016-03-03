@@ -1,0 +1,38 @@
+post:
+  tags:
+    - User
+  summary: Adds a tag to be used in bookings for the user.
+  description: >
+    This operation adds a new tag for this user. This tag can be used to label the bookings of the user.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - $ref: '#/parameters/AccessToken'
+    - in: body
+      name: body
+      required: true
+      schema:
+        type: object
+        properties:
+          tag:
+            type: string
+            description: The tag name.
+            required: true
+            example: Leisure
+          color:
+            type: string
+            description: The color of the tag in HEX format.
+            required: true
+            example: '#FFCC44'
+
+  responses:
+    '200':
+      description: A successful response for the operation.
+      schema:
+        $ref: '#/definitions/AddTagResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

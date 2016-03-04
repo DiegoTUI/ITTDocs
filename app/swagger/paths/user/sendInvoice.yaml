@@ -1,0 +1,26 @@
+post:
+  tags:
+    - User
+  summary: Sends an invoice to the user specified by the token.
+  description: >
+    This operation sends an invoice to the user specified by the token using the email in the user's record.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - $ref: '#/parameters/AccessToken'
+    - in: path
+      name: _id
+      required: true
+      type: string
+      description: The `_id` of the booking to invoice
+  responses:
+    '200':
+      description: A successful response for the operation.
+      schema:
+        $ref: '#/definitions/SendInvoiceResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

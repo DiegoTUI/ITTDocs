@@ -1,0 +1,53 @@
+type: object
+description: A model of a booking in the database
+properties:
+  _id: 
+    type: string
+    description: The identifier of the booking in the database. Used to update the booking and send invoices to the customer.
+  supplier:
+    type: string
+    description: The supplier name.
+  time:
+    type: number
+    format: double
+    description: The duration of the ride in seconds if available.
+  distance:
+    type: number
+    format: double
+    description: The distance covered in the ride in kilometers if available
+  review:
+    type: number
+    format: integer
+    description: The score given by the user to this ride (an integer betwee 0 and 5)
+  status:
+    $ref: '#/definitions/BookingStatus'
+  date:
+    $ref: '#/definitions/ISODate'
+  origin:
+    type: object
+    description: The origin of the ride
+    properties:
+      coordinates:
+        $ref: '#/definitions/GpsOrigin'
+      address:
+        type: string
+  destination:
+    type: object
+    description: The destination of the ride
+    properties:
+      coordinates:
+        $ref: '#/definitions/GpsDestination'
+      address:
+        type: string
+  paymentType:
+    $ref: '#/definitions/PaymentType'
+  payment:
+    type: object
+    description: The payment details for this booking.  
+    properties:
+      amount:
+        type: number
+        format: double
+        description: The amount paid by the customer.
+      currency:
+        $ref: '#/definitions/Currency'

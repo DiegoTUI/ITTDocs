@@ -1,0 +1,5 @@
+type: object
+description: The response of a [POST]bookings/{_id}/sendInvoice operation
+properties:
+  success:
+    type: boolean

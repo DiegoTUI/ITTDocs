@@ -1,0 +1,7 @@
+type: object
+description: The response of a bookings/{_id} (PUT) operation
+properties:
+  success:
+    type: boolean
+  data:
+    $ref: '#/definitions/DatabaseBooking'

@@ -26,3 +26,9 @@
     $ref: user/addGetPaymentMethods.yaml
 /api/v1/users/paymentMethods/{_id}:
     $ref: user/putGetDeletePaymentMethod.yaml
+/api/v1/bookings:
+    $ref: user/getBookings.yaml
+/api/v1/bookings/{_id}:
+    $ref: user/putBooking.yaml
+/api/v1/bookings/{_id}/sendInvoice:
+    $ref: user/sendInvoice.yaml

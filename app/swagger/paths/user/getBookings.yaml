@@ -1,0 +1,37 @@
+get:
+  tags:
+    - User
+  summary: Lists the bookings of the user specified by the token.
+  description: >
+    This operation lists the bookings of the user specified by the token.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - $ref: '#/parameters/AccessToken'
+    - in: query
+      name: limit
+      required: false
+      type: number
+      format: integer
+      default: 1000
+      description: >
+        The maximum number of bookings to return
+    - in: query
+      name: skip
+      required: false
+      type: number
+      format: integer
+      default: 0
+      description: >
+        The number of records to skip. Used for pagination.
+  responses:
+    '200':
+      description: A successful response for the operation.
+      schema:
+        $ref: '#/definitions/GetBookingsResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

@@ -18,6 +18,8 @@ VehicleType:
     $ref: booking/vehicleType.yaml
 Booking:
     $ref: booking/booking.yaml
+DatabaseBooking:
+    $ref: user/databaseBooking.yaml
 BookingStatus:
     $ref: booking/bookingStatus.yaml
 ISODate:
@@ -68,3 +70,9 @@ GetPaymentMethodResponse:
     $ref: user/getPaymentMethodResponse.yaml
 DeletePaymentMethodResponse:
     $ref: user/deletePaymentMethodResponse.yaml
+GetBookingsResponse:
+    $ref: user/getBookingsResponse.yaml
+UpdateBookingResponse:
+    $ref: user/updateBookingResponse.yaml
+SendInvoiceResponse:
+    $ref: user/sendInvoiceResponse.yaml

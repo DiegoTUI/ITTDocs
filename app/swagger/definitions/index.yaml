@@ -16,6 +16,8 @@ Vehicle:
     $ref: booking/vehicle.yaml
 VehicleType:
     $ref: booking/vehicleType.yaml
+Driver:
+    $ref: booking/driver.yaml
 Booking:
     $ref: booking/booking.yaml
 DatabaseBooking:

@@ -21,6 +21,8 @@ properties:
     description: Estimated waiting time for that vehicle to arrive in case it is booked (in seconds).
   vehicleType: 
     $ref: '#/definitions/VehicleType'
+  driver:
+    $ref: '#/definitions/Driver'
   paymentTypes:
     type: array
     description: The list of allowed payment types for this vehicle.

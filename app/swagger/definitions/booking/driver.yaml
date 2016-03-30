@@ -1,0 +1,21 @@
+type: object
+description: 'The model of a driver'
+properties: 
+  name:
+    type: string
+    description: The name of the driver.
+  surname: 
+    type: string
+    description: The surname of the driver.
+  license: 
+    type: string
+    description: The license of the driver.
+  phone: 
+    type: string
+    description: The phone number of the driver.
+  vehicle: 
+    type: string
+    description: The vehicle (make, model, type) of the driver.
+  avatar: 
+    type: string
+    description: The URL of the avatar (picture) of the driver.

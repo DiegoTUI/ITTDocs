@@ -11,7 +11,7 @@ properties:
   icon: 
     type: string
     description: Url of the icon of the supplier.
-  paymentType: 
+  paymentTypes: 
     type: array
     description: Payment types accepted by the supplier.
     items: 

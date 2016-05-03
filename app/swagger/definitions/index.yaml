@@ -24,6 +24,8 @@ DatabaseBooking:
     $ref: user/databaseBooking.yaml
 BookingStatus:
     $ref: booking/bookingStatus.yaml
+PaymentStatus:
+    $ref: booking/paymentStatus.yaml
 ISODate:
     $ref: booking/isoDate.yaml
 Currency:

@@ -13,6 +13,3 @@ enum:
     - drivernoshow
     - passengernoshow
     - finished
-    - paying
-    - paid
-    - paidnoshow

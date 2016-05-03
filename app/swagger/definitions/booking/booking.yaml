@@ -59,6 +59,8 @@ properties:
         description: The amount paid by the customer.
       currency:
         $ref: '#/definitions/Currency'
+      status:
+        $ref: '#/definitions/PaymentStatus'
   delay: 
     type: integer
     description: Waiting time in seconds.

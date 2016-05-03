@@ -1,0 +1,7 @@
+type: string
+description: Possible payment statuses
+default: paid
+enum:
+    - authorized
+    - paying
+    - paid

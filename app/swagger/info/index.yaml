@@ -27,8 +27,20 @@ description: |
     - The first thing to do is find out how many and which **taxi suppliers** operate around the loaction of your user. Call `/api/v1/nearbySuppliers` with just a pair of coordinates and you'll get a list with all the suppliers operating around that area.
     - Then you will have to query the system about the **availability** of vehicles **for now**. By sending a request to the `/api/v1/avail` operation with the origin, and optionally the destination of the ride, you will receive the list of vehicles available to pick up your customer.
     - Use the `id` of one of the vehicles returned in the availability in order to **book** it, using the `POST /api/v1/book` operation.
-    - **Check the status** of your booking sending the `bookingId` received from the bookPOST operation to the `GET /api/v1/book` operation.
+    - **Check the status** of your booking sending the `bookingId` received from the bookPOST operation to the `GET /api/v1/book` operation. Learn more about statuses right below.
     - You can also **cancel** the booking sending the same `bookingId` to the `/api/v1/cancel` operation
+    ###**Booking statuses**
+    Vehicles and drivers are living creatures, and they have a behaviour. The booking status is our way to tell the app what's the driver doing. You get the `status` of a booking everytime you make a `GET /api/v1/book` operation (or, if you are connected through a websocket, everytime the system notifies a change). Here is a brief description of the possible statuses that you may receive as a response to the `GET /api/v1/book` operation:
+      - `dispatching`: the supplier's system has received the booking request, but it's assigning a vehicle.
+      - `confirmed`: the supplier's system has successfully assigned a vehicle.
+      - `unavailable`: the supplier's system was unable to assign a vehicle. The booking is cancelled.
+      - `way`: the driver is on his way to the pickup point.
+      - `waiting`: the driver has arrived to the pickup point and it's waiting for the passenger.
+      - `running`: the driver has picked up the passenger and is taking him to the destination.
+      - `finished`: the ride has finished. The passenger is at the destination point.
+      - `cancelled`: the ride has been cancelled.
+      - `drivernoshow`: the customer reported that the driver has not been in the pickup point. The booking is now cancelled.
+      - `passengernoshow`: the driver reported that the passenger was not in the pickup point while he was waiting. The booking is now cancelled.
 
     ##**Payment**
     We integrate two kinds of suppliers regarding payment: those who allows the customer to pay the ride through the app (**payment-in-app**), and those who doesn't (**payment-in-car** - the customer will pay the ride to the driver). We don't need to do anything to enable payment in the payment-in-car suppliers; payment is done physically by the customer handing the money to the driver. 

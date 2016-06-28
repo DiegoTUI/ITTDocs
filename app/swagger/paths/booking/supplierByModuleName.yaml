@@ -1,0 +1,32 @@
+get:
+  tags:
+    - Booking
+  summary: Returns the info of a supplier.
+  description: This operation returns relevant static info of a supplier, including its commercial name, terms and conditions, cancellation/noshow policies, icon, etc. The language of the response can be set using the `Accept-Language` header of the request. The language defaults to English.
+  consumes:
+    - application/json
+  produces:
+    - application/json
+  parameters:
+    - $ref: '#/parameters/AccessToken'
+    - in: header
+      name: Accept-Language
+      type: string
+      required: true
+      default: 'en'
+      description: The preferred language of the response. Defaults to English
+    - in: path
+      name: moduleName
+      required: true
+      default: eTaxi
+      type: string
+      description: The module name of the supplier as returned by the `supplier` field in the selected vehicle of the `[POST]/api/v1/avail` operation.
+  responses:
+    '200':
+      description: A booking object.
+      schema:
+        $ref: '#/definitions/SupplierByModuleNameResponse'
+    '400':
+      description: Error
+      schema:
+        $ref: '#/definitions/ErrorResponse'

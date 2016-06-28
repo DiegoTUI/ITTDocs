@@ -4,6 +4,8 @@
     $ref: booking/avail.yaml
 /api/v1/book:
     $ref: booking/book.yaml
+/api/v1/suppliers/byModuleName/{moduleName}:
+    $ref: booking/supplierByModuleName.yaml
 /api/v1/cancel:
     $ref: booking/cancel.yaml
 /auth/v1/tokens/new:

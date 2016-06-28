@@ -1,0 +1,30 @@
+type: object
+description: The response of the supplier/byModuleName operation
+properties:
+  success:
+    type: boolean
+  data:
+    type: object
+    properties:
+        name:
+          type: string
+          description: The supplier's commercial name
+        icon:
+          type: string
+          description: The link the the supplier's icon
+        terms:
+          type: string
+          description: An html document with the Terms&Conditions of the supplier
+        bullets:
+          type: array
+          description: A set of bullet points to be highlighted to the user. It usually includes cancellation/noshow policies.
+          items:
+            type: object
+            description: A bullet point with relevant info for the user
+            properties:
+              title:
+                type: string
+                description: The title of the bullet point
+              text:
+                type: string
+                description: The text of the bullet point

@@ -26,7 +26,7 @@ description: |
     Our booking flow is pretty simple and thoroughly documented in the **Booking** block of operations. Here is how it works:
     - The first thing to do is find out how many and which **taxi suppliers** operate around the location of your user. Call `/api/v1/nearbySuppliers` with just a pair of coordinates and you'll get a list with all the suppliers operating around that area.
     - Then you will have to query the system about the **availability** of vehicles **for now**. By sending a request to the `/api/v1/avail` operation with the origin, and optionally the destination of the ride, you will receive the list of vehicles available to pick up your customer.
-    - Use the `id` of one of the vehicles returned in the availability in order to **book** it, using the `POST /api/v1/book` operation.
+    - Use the `id` of one of the vehicles returned in the availability in order to **book** it, using the `POST /api/v1/book` operation. Right before placing the booking, the user will need to **accept the terms&conditions** of the supplier providing the service for the sected vehicle. The `GET /api/v1/suppliers/byModuleName/:moduleName` operation returns this information.
     - **Check the status** of your booking sending the `bookingId` received from the bookPOST operation to the `GET /api/v1/book` operation. Learn more about statuses right below.
     - You can also **cancel** the booking sending the same `bookingId` to the `/api/v1/cancel` operation
     ###**Booking statuses**

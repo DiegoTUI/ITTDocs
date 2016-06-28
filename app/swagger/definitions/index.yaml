@@ -42,6 +42,8 @@ BookGetResponse:
     $ref: booking/bookGetResponse.yaml
 CancelResponse:
     $ref: booking/cancelResponse.yaml
+SupplierByModuleNameResponse:
+    $ref: booking/supplierByModuleNameResponse.yaml
 TokenNewResponse:
     $ref: auth/tokenNewResponse.yaml
 TokenRenewResponse:

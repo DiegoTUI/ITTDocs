@@ -10,4 +10,4 @@ properties:
   date:
     type: string
     description: The date for the booking in the format `('YYYY-MM-DDTHH:mm:ssZZ')`. This parameter should only be passed in case of prebooking. If not passed, then ASAP (immediate) vehicles apply.
-    example: ('YYYY-MM-DDTHH:mm:ssZZ') OR REMOVE THIS PARAM
+    example: YYYY-MM-DDTHH:mm:ssZZ OR REMOVE THIS PARAM

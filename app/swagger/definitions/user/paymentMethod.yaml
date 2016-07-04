@@ -27,6 +27,10 @@ properties:
       - jcb,
       - dinners_club,
       - dankort
+  ccToken:
+    type: string
+    description: The tokenized credit card
+    example: ty6yhWU9jKcD5Ea3q9PU6Rwwq
   ccPrintedName:
     type: string
     description: The name as printed in the credit card

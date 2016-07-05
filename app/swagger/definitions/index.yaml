@@ -32,8 +32,12 @@ Currency:
     $ref: booking/currency.yaml
 Supplier:
     $ref: booking/supplier.yaml
+CoverageArea:
+    $ref: booking/coverageArea.yaml
 NearbySupplierResponse:
     $ref: booking/nearbySupplierResponse.yaml
+AreasAvailableResponse:
+    $ref: booking/areasAvailableResponse.yaml
 AvailResponse:
     $ref: booking/availResponse.yaml
 BookPostResponse:

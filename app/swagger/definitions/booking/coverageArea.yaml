@@ -1,0 +1,44 @@
+type: object
+description: An area where TaxiTime has coverage
+properties:
+  name:
+    type: string
+    description: The name of the area
+  state:
+    type: string
+    description: The state/province where the area belongs
+  country:
+    type: string
+    description: The country where the area belongs
+  continent:
+    type: string
+    description: The continent where the area belongs
+  geometry:
+    type: object
+    description: A [GeoJSON Multipolygon](http://geojson.org/geojson-spec.html#multipolygon) enclosing the area of coverage
+    properties:
+      type: 
+        type: string
+        default: MultiPolygon
+      coordinates:
+        type: array
+        description: An array of array as described in the [GeoJSON Multipolygon specification](http://geojson.org/geojson-spec.html#multipolygon)
+  suppliers:
+    type: array
+    description: The list of suppliers operating in this area
+    items:
+      type: object
+      properties:
+        name:
+          type: string
+          description: The name of the supplier
+        capabilities:
+          type: array
+          description: The capabilities (asap, prebook) of the supplier
+          items:
+            type: string
+            description: Possible capabilities of a supplier
+            default: asap
+            enum:
+                - asap
+                - prebook

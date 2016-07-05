@@ -1,7 +1,7 @@
 get:
   tags:
     - Booking
-  summary: Returns the info of a supplier.
+  summary: Returns the Terms & Conditions of a supplier.
   description: This operation returns relevant static info of a supplier, including its commercial name, terms and conditions, cancellation/noshow policies, icon, etc. The language of the response can be set using the `Accept-Language` header of the request. The language defaults to English.
   consumes:
     - application/json

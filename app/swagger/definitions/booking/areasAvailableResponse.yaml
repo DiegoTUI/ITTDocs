@@ -1,0 +1,9 @@
+type: object
+description: The response of an areasAvailable operation
+properties:
+  success:
+    type: boolean
+  data:
+    type: array
+    items:
+      $ref: '#/definitions/CoverageArea'

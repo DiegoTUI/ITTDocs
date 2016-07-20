@@ -45,7 +45,7 @@ post:
             type: string
             description: A valid tokenized card
             required: true
-            example: validTokenizedCard
+            example: MKJM9DVWcI5kZ0oSyqb2IVvB9Pr
           ccPrintedName:
             type: string
             description: The name as printed in the credit card

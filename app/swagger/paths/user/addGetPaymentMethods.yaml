@@ -41,6 +41,11 @@ post:
               - jcb
               - dinners_club
               - dankort
+          ccToken:
+            type: string
+            description: A valid tokenized card
+            required: true
+            example: validTokenizedCard
           ccPrintedName:
             type: string
             description: The name as printed in the credit card

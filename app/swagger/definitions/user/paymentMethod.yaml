@@ -20,12 +20,12 @@ properties:
     description: The credit card type
     default: visa
     enum:
-      - visa,
-      - master,
-      - american_express,
-      - discover,
-      - jcb,
-      - dinners_club,
+      - visa
+      - master
+      - american_express
+      - discover
+      - jcb
+      - dinners_club
       - dankort
   ccToken:
     type: string

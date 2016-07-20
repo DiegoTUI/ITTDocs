@@ -34,12 +34,12 @@ post:
             required: true
             default: visa
             enum:
-              - visa,
-              - master,
-              - american_express,
-              - discover,
-              - jcb,
-              - dinners_club,
+              - visa
+              - master
+              - american_express
+              - discover
+              - jcb
+              - dinners_club
               - dankort
           ccPrintedName:
             type: string

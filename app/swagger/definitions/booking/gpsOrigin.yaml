@@ -8,9 +8,9 @@ properties:
     type: number
     format: double
     description: The latitude of the point.
-    example: 35.0884616
+    example: 39.5451195
   longitude:
     type: number
     format: double
     description: The longitude of the point.
-    example: -106.649307
+    example: 2.7203992

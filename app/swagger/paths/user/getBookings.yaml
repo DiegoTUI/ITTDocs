@@ -3,7 +3,7 @@ get:
     - User
   summary: Lists the bookings of the user specified by the token.
   description: >
-    This operation lists the bookings of the user specified by the token.
+    This operation lists the **finished** and **pending** bookings of the user specified by the token. A booking is considered **finished** when the interaction customer-driver is over. This includes succesful rides, cancellations, passenger no shows and driver no shows. A booking is considered **pending** when it is confirmed, but it has not already happened (that is, prebooks). All pending bookings will have their `status` set to `confirmed`, and a `date` not `null` and set in the future.
   consumes:
     - application/json
   produces:

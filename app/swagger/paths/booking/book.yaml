@@ -45,7 +45,7 @@ post:
               token:
                 type: string
                 description: A tokenized credit card to perform the payment. Only needed in those bookings whose `paymentType` is `app`
-                example: testCardToken
+                example: MKJM9DVWcI5kZ0oSyqb2IVvB9Pr
 
   responses:
     '200':

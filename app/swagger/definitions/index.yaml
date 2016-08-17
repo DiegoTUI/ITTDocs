@@ -18,6 +18,8 @@ InvalidCodeError:
     $ref: ./errors/invalidCode.yaml
 SupplierFatalError:
     $ref: ./errors/supplierFatal.yaml
+SupplierAvailError:
+    $ref: ./errors/supplierAvail.yaml
 CancellationError:
     $ref: ./errors/cancellation.yaml
 GatewayError:
@@ -38,8 +40,6 @@ KmLimitationError:
     $ref: ./errors/kmLimitation.yaml
 ServiceNotAvailableError:
     $ref: ./errors/serviceNotAvailable.yaml
-Error:
-    $ref: ./error.yaml
 GpsOrigin:
     $ref: booking/gpsOrigin.yaml
 GpsDestination:

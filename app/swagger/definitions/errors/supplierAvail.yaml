@@ -1,0 +1,24 @@
+type: object
+description: Error in the availability of a supplier.
+properties:
+  code:
+    type: int32
+    description: Error code
+    example: 10
+  name:
+    type: string
+    description: Error name
+    example: SupplierFatalError
+  message: 
+    type: string
+    description: Error message
+    example: Supplier returned an error
+  supplier:
+    type: string
+    description: The name of the supplier
+    example: MockSupplier
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+    example: 500

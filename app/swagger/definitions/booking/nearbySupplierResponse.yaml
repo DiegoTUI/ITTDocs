@@ -8,8 +8,8 @@ properties:
     properties:
         errors:
             type: array
-            items:
-              $ref: '#/definitions/Error'
+            items: 
+              type: string
         suppliers:
             type: array
             items:

@@ -25,7 +25,39 @@ post:
       description: The cancellation response.
       schema:
         $ref: '#/definitions/CancelResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '404#7':
+      description: Could not find the specified booking.
+      schema:
+        $ref: '#/definitions/RecordNotFoundError'
+    '422#1':
+      description: Missing parameters in request.
+      schema:
+        $ref: '#/definitions/MissingParametersError'
+    '422#2':
+      description: Invalid parameters in request.
+      schema:
+        $ref: '#/definitions/InvalidParametersError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
+    '500#10':
+      description: Error returned by the supplier when trying to cancel the booking.
+      schema:
+        $ref: '#/definitions/SupplierFatalError'
+    '500#12':
+      description: Either the booking is not cancellable or it has been already cancelled, or the supplier refuses to cancel it. In any case, the ride has not been cancelled.
+      schema:
+        $ref: '#/definitions/CancellationError'
+    '500#14':
+      description: Error paying the cancellation fare in the user's credit card. Only when `paymentType` is `app` and the ride has cancellation costs.
+      schema:
+        $ref: '#/definitions/GatewayError'
+    '500#15':
+      description: Could not pay the cancellation because there is another payment of the same ride in-flight. Try again later. Only when `paymentType` is `app` and the ride has cancellation costs.
+      schema:
+        $ref: '#/definitions/PaymentBlockedError'

@@ -52,10 +52,38 @@ post:
       description: A booking object.
       schema:
         $ref: '#/definitions/BookPostResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '422#1':
+      description: Missing parameters in request.
+      schema:
+        $ref: '#/definitions/MissingParametersError'
+    '422#2':
+      description: Invalid parameters in request.
+      schema:
+        $ref: '#/definitions/InvalidParametersError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
+    '500#10':
+      description: Error returned by the supplier when trying to place the booking.
+      schema:
+        $ref: '#/definitions/SupplierFatalError'
+    '500#14':
+      description: Error authorizing the ride fare in the user's credit card. Only when `paymentType` is `app` and the fare returned by the supplier is fixed.
+      schema:
+        $ref: '#/definitions/GatewayError'
+    '500#15':
+      description: Could not authorize the ride because there is another payment of the same ride in-flight. Try again later. Only when `paymentType` is `app` and the fare returned by the supplier is fixed.
+      schema:
+        $ref: '#/definitions/PaymentBlockedError'
+    '500#20':
+      description: Error validating payment method (only when `paymentType` is `app`). The card provided by the user is not valid.
+      schema:
+        $ref: '#/definitions/PaymentValidationError'
 get:
   tags:
     - Booking
@@ -112,7 +140,35 @@ get:
       description: A booking object.
       schema:
         $ref: '#/definitions/BookPostResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '404#7':
+      description: Could not find the specified booking.
+      schema:
+        $ref: '#/definitions/RecordNotFoundError'
+    '422#1':
+      description: Missing parameters in request.
+      schema:
+        $ref: '#/definitions/MissingParametersError'
+    '422#2':
+      description: Invalid parameters in request.
+      schema:
+        $ref: '#/definitions/InvalidParametersError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
+    '500#10':
+      description: Error returned by the supplier when trying to retrieve the information of the booking.
+      schema:
+        $ref: '#/definitions/SupplierFatalError'
+    '500#14':
+      description: Error paying the ride fare in the user's credit card. Only when `paymentType` is `app` and the ride has finished and it's ready to be paid.
+      schema:
+        $ref: '#/definitions/GatewayError'
+    '500#15':
+      description: Could not pay the ride because there is another payment of the same ride in-flight. Try again later. Only when `paymentType` is `app` and the ride has finished and it's ready to be paid.
+      schema:
+        $ref: '#/definitions/PaymentBlockedError'

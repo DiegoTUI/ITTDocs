@@ -23,7 +23,15 @@ post:
       description: A set of suppliers available around a given point.
       schema:
         $ref: '#/definitions/NearbySupplierResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '422#1':
+      description: Missing parameters in request.
+      schema:
+        $ref: '#/definitions/MissingParametersError'
+    '422#2':
+      description: Invalid parameters in request.
+      schema:
+        $ref: '#/definitions/InvalidParametersError'

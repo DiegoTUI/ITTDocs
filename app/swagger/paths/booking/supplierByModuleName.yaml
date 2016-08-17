@@ -26,7 +26,19 @@ get:
       description: A booking object.
       schema:
         $ref: '#/definitions/SupplierByModuleNameResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '403#17':
+      description: Forbidden access to a requested field.
+      schema:
+        $ref: '#/definitions/ForbiddenError'
+    '404#7':
+      description: Could not find the specified supplier.
+      schema:
+        $ref: '#/definitions/RecordNotFoundError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'

@@ -1,3 +1,45 @@
+GenericError:
+    $ref: ./errors/generic.yaml
+MissingParametersError:
+    $ref: ./errors/missingParameters.yaml
+InvalidParametersError:
+    $ref: ./errors/invalidParameters.yaml
+UnauthorizedError:
+    $ref: ./errors/unauthorized.yaml
+DBError:
+    $ref: ./errors/db.yaml
+MaxSMSReachedError:
+    $ref: ./errors/maxSmsReached.yaml
+SMSError:
+    $ref: ./errors/sms.yaml
+RecordNotFoundError:
+    $ref: ./errors/recordNotFound.yaml
+InvalidCodeError:
+    $ref: ./errors/invalidCode.yaml
+PushError:
+    $ref: ./errors/push.yaml
+SupplierFatalError:
+    $ref: ./errors/supplierFatal.yaml
+CancellationError:
+    $ref: ./errors/cancellation.yaml
+GatewayError:
+    $ref: ./errors/gateway.yaml
+PaymentBlockedError:
+    $ref: ./errors/paymentBlocked.yaml
+EmailError:
+    $ref: ./errors/email.yaml
+ForbiddenError:
+    $ref: ./errors/forbidden.yaml
+MigrationBlockedError:
+    $ref: ./errors/migrationBlocked.yaml
+VoidTransactionError:
+    $ref: ./errors/voidTransaction.yaml
+PaymentValidationError:
+    $ref: ./errors/paymentValidation.yaml
+KmLimitationError:
+    $ref: ./errors/kmLimitation.yaml
+ServiceNotAvailableError:
+    $ref: ./errors/serviceNotAvailable.yaml
 Error:
     $ref: ./error.yaml
 ErrorResponse:

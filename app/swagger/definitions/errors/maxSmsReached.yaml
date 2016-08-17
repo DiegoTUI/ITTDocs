@@ -1,0 +1,20 @@
+type: object
+description: Maximum number of SMS reached error.
+properties:
+  code:
+    type: int32
+    description: Error code
+    example: 5
+  name:
+    type: string
+    description: Error name
+    example: MaxSMSReached
+  message: 
+    type: string
+    description: Error message
+    example: Maximum number of SMS reached
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+    example: 403

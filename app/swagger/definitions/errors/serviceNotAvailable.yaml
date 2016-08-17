@@ -1,0 +1,20 @@
+type: object
+description: Service not available in the server.
+properties:
+  code:
+    type: int32
+    description: Error code
+    example: 22
+  name:
+    type: string
+    description: Error name
+    example: ServiceNotAvailable
+  message: 
+    type: string
+    description: Error message
+    example: Service not available
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+    example: 503

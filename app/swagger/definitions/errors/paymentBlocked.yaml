@@ -1,0 +1,20 @@
+type: object
+description: Payment is blocked by another payment in-flight.
+properties:
+  code:
+    type: int32
+    description: Error code
+    example: 15
+  name:
+    type: string
+    description: Error name
+    example: PaymentBlockedError
+  message: 
+    type: string
+    description: Error message
+    example: Not possible to pay now. There is another payment in-flight.
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+    example: 500

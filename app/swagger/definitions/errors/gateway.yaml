@@ -1,0 +1,20 @@
+type: object
+description: Something went wrong with the payment gateway.
+properties:
+  code:
+    type: int32
+    description: Error code
+    example: 14
+  name:
+    type: string
+    description: Error name
+    example: GatewayError
+  message: 
+    type: string
+    description: Error message
+    example: Error in the payment gateway
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+    example: 500

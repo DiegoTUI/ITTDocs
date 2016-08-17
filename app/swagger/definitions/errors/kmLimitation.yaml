@@ -1,0 +1,20 @@
+type: object
+description: Origin and destination points of the ride are too far apart.
+properties:
+  code:
+    type: int32
+    description: Error code
+    example: 21
+  name:
+    type: string
+    description: Error name
+    example: KmLimitationError
+  message: 
+    type: string
+    description: Error message
+    example: Origin and destination points are too far apart.
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+    example: 422

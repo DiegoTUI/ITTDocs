@@ -1,0 +1,20 @@
+type: object
+description: Record not found error.
+properties:
+  code:
+    type: int32
+    description: Error code
+    example: 7
+  name:
+    type: string
+    description: Error name
+    example: RecordNotFound
+  message: 
+    type: string
+    description: Error message
+    example: Record not found
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+    example: 404

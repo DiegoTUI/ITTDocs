@@ -1,0 +1,20 @@
+type: object
+description: A missing parameters error.
+properties:
+  code:
+    type: int32
+    description: Error code
+    example: 1
+  name:
+    type: string
+    description: Error name
+    example: MissingParameters
+  message: 
+    type: string
+    description: Error message
+    example: Missing Parameters
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+    example: 422

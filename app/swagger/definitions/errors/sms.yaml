@@ -1,0 +1,20 @@
+type: object
+description: Error while sending SMS.
+properties:
+  code:
+    type: int32
+    description: Error code
+    example: 6
+  name:
+    type: string
+    description: Error name
+    example: SMSError
+  message: 
+    type: string
+    description: Error message
+    example: Error sending SMS
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+    example: 500

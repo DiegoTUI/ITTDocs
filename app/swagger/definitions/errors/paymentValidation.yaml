@@ -1,0 +1,20 @@
+type: object
+description: Could not validate a payment method.
+properties:
+  code:
+    type: int32
+    description: Error code
+    example: 20
+  name:
+    type: string
+    description: Error name
+    example: PaymentValidationError
+  message: 
+    type: string
+    description: Error message
+    example: Payment method validation failed
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+    example: 500

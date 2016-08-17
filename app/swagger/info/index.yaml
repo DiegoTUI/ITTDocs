@@ -57,4 +57,7 @@ description: |
     TaxiTime provides a complete set of operations to manage the users of your app in our backend. We use the phone number as a primary key to identify a user and we provide the means to validate the phone number using an SMS code. You can add and update basic information (name, surname, e-mail) to your users, add and update payment methods (i.e. credit cards), add tags to classify their bookings, list their bookings, provide them with receipts, etc.
 
     Using our user management system is optional, you can still integrate with us using just the operations from the **Auth** and **Booking** blocks and do the user management yourself. Anyway we encourage you to use ours. It's already proven and fit for purpose.
+
+    ##**Errors**
+    Each of the documented operations come with a list of potential errors that could be returned by the operation. Each type of error in TaxiTime have a unique `code` and a `httpStatus` for the response. Different error types (with different error codes) might share the same httpStatus. For example, the `GET /api/v1/book` operation might return different errors under the httpStatus 500 (Internal Server Error). Each of these errors will be docummented using the compound key `httpStatus#errorCode`. This way, if an operation returns a `CancellationError`(code 12) under the httpStatus 500, this particular response will be represented as `500#12`.
 termsOfService: 'http://taxitime.com/terms.txt'

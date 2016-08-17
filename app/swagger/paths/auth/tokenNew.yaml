@@ -30,7 +30,15 @@ post:
       description: The new token and userId.
       schema:
         $ref: '#/definitions/TokenNewResponse'
-    '400':
-      description: Error
+    '404#7':
+      description: Invalid credentials provided.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/RecordNotFoundError'
+    '422#1':
+      description: Missing parameters in request.
+      schema:
+        $ref: '#/definitions/MissingParametersError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'

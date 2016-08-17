@@ -34,7 +34,15 @@ post:
       description: The new token for the existing userId.
       schema:
         $ref: '#/definitions/TokenRenewResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Credentials, userId and/or token provided are invalid.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '422#1':
+      description: Missing parameters in request.
+      schema:
+        $ref: '#/definitions/MissingParametersError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'

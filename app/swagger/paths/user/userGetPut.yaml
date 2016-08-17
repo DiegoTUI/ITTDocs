@@ -31,10 +31,18 @@ get:
       description: A successful response for the operation.
       schema:
         $ref: '#/definitions/UserGetResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '403#17':
+      description: The fields you are trying to retrieve are forbidden.
+      schema:
+        $ref: '#/definitions/ForbiddenError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
 put:
   tags:
     - User
@@ -77,7 +85,15 @@ put:
       description: A successful response for the operation.
       schema:
         $ref: '#/definitions/UserPutResponse'
-    '400':
-      description: Error
+    '422#1':
+      description: Missing parameters in request.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/MissingParametersError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
+    '500#100':
+      description: Error storing files in the cloud.
+      schema:
+        $ref: '#/definitions/GenericError'

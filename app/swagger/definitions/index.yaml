@@ -16,8 +16,6 @@ RecordNotFoundError:
     $ref: ./errors/recordNotFound.yaml
 InvalidCodeError:
     $ref: ./errors/invalidCode.yaml
-PushError:
-    $ref: ./errors/push.yaml
 SupplierFatalError:
     $ref: ./errors/supplierFatal.yaml
 CancellationError:

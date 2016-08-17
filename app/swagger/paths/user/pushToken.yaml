@@ -34,7 +34,23 @@ put:
       description: A successful response for the operation.
       schema:
         $ref: '#/definitions/PushTokenResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '404#7':
+      description: Could not find the specified user or the application associated to that user.
+      schema:
+        $ref: '#/definitions/RecordNotFoundError'
+    '422#1':
+      description: Missing parameters in request.
+      schema:
+        $ref: '#/definitions/MissingParametersError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
+    '500#100':
+      description: Unknown platform.
+      schema:
+        $ref: '#/definitions/GenericError'

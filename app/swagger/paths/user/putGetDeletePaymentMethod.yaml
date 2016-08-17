@@ -51,10 +51,22 @@ put:
       description: A successful response for the operation.
       schema:
         $ref: '#/definitions/AddPaymentMethodResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '404#7':
+      description: Could not find the specified payment method in the user's record.
+      schema:
+        $ref: '#/definitions/RecordNotFoundError'
+    '422#1':
+      description: Missing parameters in request.
+      schema:
+        $ref: '#/definitions/MissingParametersError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
 get:
   tags:
     - User
@@ -77,10 +89,14 @@ get:
       description: A successful response for the operation.
       schema:
         $ref: '#/definitions/GetPaymentMethodResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
 delete:
   tags:
     - User
@@ -103,7 +119,15 @@ delete:
       description: A successful response for the operation.
       schema:
         $ref: '#/definitions/DeletePaymentMethodResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
+    '500#100':
+      description: Could not remove payment method from Spreedly.
+      schema:
+        $ref: '#/definitions/GenericError'

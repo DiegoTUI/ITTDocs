@@ -20,7 +20,19 @@ post:
       description: A successful response for the operation.
       schema:
         $ref: '#/definitions/SendInvoiceResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '404#7':
+      description: Could not find the specified booking.
+      schema:
+        $ref: '#/definitions/RecordNotFoundError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
+    '500#16':
+      description: Could not send the e-mail with the invoice attached.
+      schema:
+        $ref: '#/definitions/EmailError'

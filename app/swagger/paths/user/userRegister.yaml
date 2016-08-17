@@ -45,7 +45,27 @@ put:
       description: A successful response for the operation.
       schema:
         $ref: '#/definitions/UserRegisterResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '403#5':
+      description: Maximum number of SMSs reached for this user.
+      schema:
+        $ref: '#/definitions/MaxSMSReachedError'
+    '422#1':
+      description: Missing parameters in request.
+      schema:
+        $ref: '#/definitions/MissingParametersError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
+    '500#6':
+      description: Error sending SMS.
+      schema:
+        $ref: '#/definitions/SMSError'
+    '500#100':
+      description: User already registered and validated.
+      schema:
+        $ref: '#/definitions/GenericError'

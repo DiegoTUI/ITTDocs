@@ -26,7 +26,23 @@ put:
       description: A successful response for the operation.
       schema:
         $ref: '#/definitions/UserValidateResponse'
-    '400':
-      description: Error
+    '401#3':
+      description: Invalid token.
       schema:
-        $ref: '#/definitions/ErrorResponse'
+        $ref: '#/definitions/UnauthorizedError'
+    '401#8':
+      description: Invalid validation SMS code.
+      schema:
+        $ref: '#/definitions/InvalidCodeError'
+    '422#1':
+      description: Missing parameters in request.
+      schema:
+        $ref: '#/definitions/MissingParametersError'
+    '500#4':
+      description: DB Error.
+      schema:
+        $ref: '#/definitions/DBError'
+    '500#100':
+      description: Error registering phone.
+      schema:
+        $ref: '#/definitions/GenericError'

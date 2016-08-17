@@ -85,6 +85,10 @@ put:
       description: A successful response for the operation.
       schema:
         $ref: '#/definitions/UserPutResponse'
+    '401#3':
+      description: Invalid token.
+      schema:
+        $ref: '#/definitions/UnauthorizedError'
     '422#1':
       description: Missing parameters in request.
       schema:

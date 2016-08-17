@@ -40,8 +40,6 @@ ServiceNotAvailableError:
     $ref: ./errors/serviceNotAvailable.yaml
 Error:
     $ref: ./error.yaml
-ErrorResponse:
-    $ref: ./errorResponse.yaml
 GpsOrigin:
     $ref: booking/gpsOrigin.yaml
 GpsDestination:

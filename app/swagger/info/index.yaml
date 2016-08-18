@@ -28,6 +28,7 @@ description: |
     - Use the `id` of one of the vehicles returned in the availability in order to **book** it, using the `POST /api/v1/book` operation. Right before placing the booking, the user will need to **accept the terms & conditions** of the supplier providing the service for the sected vehicle. The `GET /api/v1/suppliers/byModuleName/:moduleName` operation returns this information.
     - **Check the status** of your booking sending the `bookingId` received from the bookPOST operation to the `GET /api/v1/book` operation. Learn more about statuses right below.
     - You can also **cancel** the booking sending the same `bookingId` to the `/api/v1/cancel` operation
+
     ###**Booking statuses**
     Vehicles and drivers are living creatures, and they have a behaviour. The booking status is our way to tell the app what's the driver doing. You get the `status` of a booking everytime you make a `GET /api/v1/book` operation (or, if you are connected through a websocket, everytime the system notifies a change). Here is a brief description of the possible statuses that you may receive as a response to the `GET /api/v1/book` operation:
       - `dispatching`: the supplier's system has received the booking request, but it's assigning a vehicle.
@@ -40,6 +41,12 @@ description: |
       - `cancelled`: the ride has been cancelled.
       - `drivernoshow`: the customer reported that the driver has not been in the pickup point. The booking is now cancelled.
       - `passengernoshow`: the driver reported that the passenger was not in the pickup point while he was waiting. The booking is now cancelled.
+
+    ###**Payment statuses**
+    Booking statuses tell us about the status of the ride, what's going on with the driver, the passenger and the ride itself. When the booking status is `finished`, it means that the ride is over: the passenger has been dropped to his destination and the driver is probably looking for his next customer. **In most of the cases** this will also mean that the cost of the ride is known and the payment has been already done, **but this is not always the case**. In some cases, the final price os the ride is only known some time (generally from some minutes up to a couple of hours) after the ride has finished. The payment status is returned under the `payment` object by the `GET /api/v1/book` operation. If the `payment`object returned by the `GET /api/v1/book` operation is null or undefined, it means that no payment has been done for the booking. The possible values for the payment status are:
+      - `authorized`: a certain amount has been authorized in the customer's card, but the final payment is still pending.
+      - `paying`: an error occured while trying to pay the booking. Please, let us know so we can fix it.
+      - `paid`: The payment has been succesfully completed. The `amount` and `currency` in the `payment`object are now final.
 
     ##**Payment**
     We integrate two kinds of suppliers regarding payment: those who allows the customer to pay the ride through the app (**payment-in-app**), and those who doesn't (**payment-in-car** - the customer will pay the ride to the driver). We don't need to do anything to enable payment in the payment-in-car suppliers; payment is done physically by the customer handing the money to the driver. There are three **payment types** defined:

@@ -1,0 +1,20 @@
+type: object
+description: Cancellation of a booking was attempted when it was already cancelling. Try again in 20 seconds.
+properties:
+  code:
+    type: int32
+    description: Error code
+    example: 23
+  name:
+    type: string
+    description: Error name
+    example: CancellationBlocked
+  message: 
+    type: string
+    description: Error message
+    example: Cancellation blocked by another cancellation in flight
+  httpStatus:
+    type: integer
+    format: int32
+    description: HTTP status code
+    example: 500

@@ -40,6 +40,8 @@ KmLimitationError:
     $ref: ./errors/kmLimitation.yaml
 ServiceNotAvailableError:
     $ref: ./errors/serviceNotAvailable.yaml
+CancellationBlockedError:
+    $ref: ./errors/cancellationBlocked.yaml
 GpsOrigin:
     $ref: booking/gpsOrigin.yaml
 GpsDestination:

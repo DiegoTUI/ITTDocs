@@ -61,3 +61,7 @@ post:
       description: Could not pay the cancellation because there is another payment of the same ride in-flight. Try again later. Only when `paymentType` is `app` and the ride has cancellation costs.
       schema:
         $ref: '#/definitions/PaymentBlockedError'
+    '500#23':
+      description: Could not cancel the booking because the booking is being cancelled (most likely, the cancel request was sent twice by mistake). Try again later.
+      schema:
+        $ref: '#/definitions/CancellationBlockedError'

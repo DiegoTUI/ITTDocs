@@ -96,3 +96,12 @@ properties:
         format: double
       currency:
         $ref: '#/definitions/Currency'
+  partnerShare:
+    type: object
+    description: The commission of the partner in this booking. It will be null if not paid yet.
+    properties:
+      amount:
+        type: number
+        format: double
+      currency:
+        $ref: '#/definitions/Currency'

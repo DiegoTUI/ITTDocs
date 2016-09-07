@@ -10,7 +10,7 @@ get:
   parameters:
     - $ref: '#/parameters/AccessToken'
     - in: header
-      name: Accept-Language
+      name: lang
       type: string
       required: true
       default: 'en'

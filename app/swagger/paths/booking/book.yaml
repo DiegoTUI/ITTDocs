@@ -118,14 +118,16 @@ get:
       socket.on('reconnect', function() {
           socket.emit('authentication', {token: '1234567890' });
           socket.on('authenticated', function() {
-              // connected and authenticated
+              // connected and authenticated subscribe to bookGet
+              socket.emit('bookGet', {id: bookingId});
           });
       });
 
       socket.on('connect', function() {
           socket.emit('authentication', {token: '1234567890' });
           socket.on('authenticated', function() {
-              // connected and authenticated
+              // connected and authenticated subscribe to bookGet
+              socket.emit('bookGet', {id: bookingId});
           });
       });
 

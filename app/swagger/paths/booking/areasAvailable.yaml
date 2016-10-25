@@ -2,13 +2,19 @@ get:
   tags:
     - Booking
   summary: Returns the coverage areas of TaxiTime.
-  description: This operation returns the areas where TaxiTime gives service. It uses [GeoJSON Multipolygons](http://geojson.org/geojson-spec.html#multipolygon) to return a machine-readable version of each of the areas. It also returns the names and capabilities of the suppliers available in each of the areas.
+  description: This operation returns the areas where TaxiTime gives service in your preferred language. If no language is specified, it returns the areas in English. It uses [GeoJSON Multipolygons](http://geojson.org/geojson-spec.html#multipolygon) to return a machine-readable version of each of the areas. It also returns the names and capabilities of the suppliers available in each of the areas.
   consumes:
     - application/json
   produces:
     - application/json
   parameters:
     - $ref: '#/parameters/AccessToken'
+    - in: query
+      name: lang
+      required: false
+      type: string
+      description: >
+        The ISO 639-1 code of the language desired for the output.
   responses:
     '200':
       description: A list of available areas.

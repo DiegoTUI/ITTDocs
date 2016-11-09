@@ -2,12 +2,14 @@ post:
   tags:
     - Booking
   summary: Vehicles available for a certain ride.
-  description: >
-    This operation returns all the vehicles available for a certain ride. A ride may be defined just by a pick-up (origin) point **or** by a pick-up and drop-off (destination) points. You can also add a **date** to the query to prebook a ride for a certain point in time. If no date is provided, then the vehicles available for ASAP will be returned. The system connects will all the suppliers available in the area, gets the availability of vehicles for each of them and mashes all these availabilities in a single, consolidated avail response. If the drop-off point is provided, the avail response will contain extra information like the price of the ride.
+  description: |
+    This operation returns all the vehicles available for a certain ride. A ride may be defined just by a pick-up (origin) point **or** by a pick-up and drop-off (destination) points. You can also add a **date** to the query to prebook a ride for a certain point in time. If no date is provided, then the vehicles available for ASAP will be returned. There are two allowed formats for the date:
+      - **Timezone date**: following the `YYYY-MM-DDTHH:mm:ssZZ` format. For example `2016-09-25T16:30:00+02:00`.
+      - **No-timezone date**: following the `YYYY-MM-DDTHH:mm:ss` format. For example `2016-09-25T16:30:00`. In this case the system will assume the timezone defined by the origin coordinates (local time at origin).
 
+    The system will connect will all the suppliers available in the area, get the availability of vehicles for each of them and mash all these availabilities in a single, consolidated avail response. If the drop-off point is provided, the avail response will contain extra information like the price of the ride.
 
     You can find descriptions of all the fields in the avail response in the model below. A very relevant field in the avail response is `requiredForBooking`. It specifies a list of properties (given by their path) required for complete a booking. These properties will have to be included in the book (POST) request in order to successfully complete a booking. You will find a complete list of the potential values of this field in the `[POST]book` operation.
-
 
     The `data` field of the response will contain two arrays: `errors` containing the errors returned by the different suppliers, and `vehicles`, containing the valid rides returned by the different suppliers
   consumes:

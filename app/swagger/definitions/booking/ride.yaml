@@ -10,4 +10,4 @@ properties:
   date:
     type: string
     description: The date for the booking in one of these two formats, `('YYYY-MM-DDTHH:mm:ssZZ')` or `('YYYY-MM-DDTHH:mm:ss')`. If no timezone in indicated the timezone of the origin is applied. This parameter should only be passed in case of prebooking. If not passed, then ASAP (immediate) vehicles apply.
-    example: YYYY-MM-DDTHH:mm:ssZZ, YYY-MM-DDTHH:mm:ss OR REMOVE THIS PARAM
+    example: YYYY-MM-DDTHH:mm:ssZZ, YYYY-MM-DDTHH:mm:ss OR REMOVE THIS PARAM

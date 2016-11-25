@@ -4,6 +4,9 @@ properties:
   _id: 
     type: string
     description: The identifier of the booking in the database. Used to update the booking and send invoices to the customer.
+  bookingId:
+    type: string
+    description: The identifier of the booking in the booking flow. Used throughout the booking flow ([POST]book, [GET]book, [POST]cancel)
   supplier:
     type: string
     description: The supplier name.

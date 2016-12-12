@@ -48,6 +48,33 @@ description: |
       - `paying`: an error occured while trying to pay the booking. Please, let us know so we can fix it.
       - `paid`: The payment has been succesfully completed. The `amount` and `currency` in the `payment`object are now final.
 
+    ###**Vehicle types**
+    TaxiTime is about booking vehicles, so it's important to be able to tell one vehicle from another. Our `/api/v1/avail` operation returns a list of vehicles, and our `POST /api/v1/book` operation will book one of these vehicles. So it's everything about the vehicles. There are a number of fields inside the `vehicleType` object that helps us tell the user what kind of vehicle is about to book:
+      - **name**: the "commertcial" name of the vehicle. Typically, a text to be displayed to the user on the web/app and make him aware of the kind of vehicle he is about to book.
+      - **category**: the kind of car that the user is about to book. Could be one of the following values:
+        - `standard`: a standard car. There could be small urban utilitaries or bigger sedans.
+        - `suv`: a Sport Utility Vehicle or similar.
+        - `limo`: a limousine or similar.
+        - `van`: a van or similar.
+      - **service**: the kind of service that the customer will receive if he books the vehicle. Could be one of the following values:
+        - `standard`: a standard service. Like in a regular taxi or a 'lite' black car.
+        - `executive`: a black car with uniformed driver or similar.
+        - `luxury`: a top-end car (like a Mercedes S class) with uniformed driver.
+        - `shared`: a shared service (car pooled service).
+      - **licence**: the licence of the driver. Could be one of the following values:
+        - `unlicenced`: drivers NOT holding a cab or minicab/VTC licence.
+        - `taxi`: taxi drivers.
+        - `black car`: minicab/VTC licence holders.
+      - **badges**: an array of strings holding the extra features of the vehicles. The array could be empty or unexisting (meaning that the vehicle has no extra features), or hold one or several of the following values:
+        - `priority`: the assignation of this vehicle will be prioritized with respect to others. This vehicle will be assigned faster.
+        - `adapted`: vehicle adapted for customers with reduced mobility.
+        - `eco`: electric vehicle.
+        - `pet`: the vehicle accepts pets.
+      - **passengers**: the maximum number of passengers accepted in the vehicle.
+      - **luggage**: the maximum number of pieces of luggage that would fit in the vehicle.
+        - **small**: the maximum number of small (cabin baggage in a plane) pieces of luggage that would fit in the vehicle **if all the passengers were carrying small pieces of luggage**.
+        - **large**: the maximum number of large (check-in baggage in a plane) pieces of luggage that would fit in the vehicle **if all the passengers were carrying large pieces of luggage**.
+
     ##**Payment**
     We integrate two kinds of suppliers regarding payment: those who allows the customer to pay the ride through the app (**payment-in-app**), and those who doesn't (**payment-in-car** - the customer will pay the ride to the driver). We don't need to do anything to enable payment in the payment-in-car suppliers; payment is done physically by the customer handing the money to the driver. There are three **payment types** defined:
     - `cash`: the payment is done **to the driver in cash**.

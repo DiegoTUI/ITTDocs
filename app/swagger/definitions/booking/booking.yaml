@@ -23,6 +23,27 @@ properties:
     description: Phone number of the supplier.
   status:
     $ref: '#/definitions/BookingStatus'
+  reason:
+    type: object
+    description: The reason for the status. It's normally null, which means that nothing special happened. If it's not null it means that something triggered the current status (like for example when the validation of a payment method fails, then the booking is automatically cancelled)
+    properties:
+      code:
+        type: int32
+        description: Error code
+        example: 14
+      name:
+        type: string
+        description: Error name
+        example: GatewayError
+      message: 
+        type: string
+        description: Error message
+        example: Payment validation failed
+      httpStatus:
+        type: integer
+        format: int32
+        description: HTTP status code
+        example: 500
   created:
     $ref: '#/definitions/ISODate'
   vehicleType:

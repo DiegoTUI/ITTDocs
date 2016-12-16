@@ -3,7 +3,7 @@ post:
     - User
   summary: Sends an invoice to the user specified by the token.
   description: >
-    This operation sends an invoice to the user specified by the token using the email in the user's record.
+    This operation sends an invoice to the user specified by the token using the email in the user's record. If you are a partner and you want to remove TaxiTime references from the invoice's email, set the `partner` field in the `body` of the request to `true`.
   consumes:
     - application/json
   produces:
@@ -14,7 +14,18 @@ post:
       name: _id
       required: true
       type: string
-      description: The `_id` of the booking to invoice
+      description: The `_id` or the `bookingId` of the booking to invoice
+    - in: body
+      name: body
+      required: false
+      schema:
+        type: object
+        properties:
+          partner:
+            type: boolean
+            description: Set it to true if you are a partner and you want to remove references of TaxiTime in the invoice e-mail.
+            required: false
+            example: true
   responses:
     '200':
       description: A successful response for the operation.

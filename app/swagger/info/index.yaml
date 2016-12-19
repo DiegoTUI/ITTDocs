@@ -53,7 +53,7 @@ description: |
 
     ###**Vehicle types**
     TaxiTime is about booking vehicles, so it's important to be able to tell one vehicle from another. Our `/api/v1/avail` operation returns a list of vehicles, and our `POST /api/v1/book` operation will book one of these vehicles. So it's everything about the vehicles. There are a number of fields inside the `vehicleType` object that helps us tell the user what kind of vehicle is about to book:
-      - **name**: the "commertcial" name of the vehicle. Typically, a text to be displayed to the user on the web/app and make him aware of the kind of vehicle he is about to book.
+      - **name**: the "commercial" name of the vehicle. Typically, a text to be displayed to the user on the web/app and make him aware of the kind of vehicle he is about to book.
       - **category**: the kind of car that the user is about to book. Could be one of the following values:
         - `standard`: a standard car. There could be small urban utilitaries or bigger sedans.
         - `suv`: a Sport Utility Vehicle or similar.
@@ -73,6 +73,8 @@ description: |
         - `adapted`: vehicle adapted for customers with reduced mobility.
         - `eco`: electric vehicle.
         - `pet`: the vehicle accepts pets.
+        - `baby`: the vehicle is adapted to carry a baby.
+        - `wifi`: the vehicle has on board wifi.
       - **passengers**: the maximum number of passengers accepted in the vehicle.
       - **luggage**: the maximum number of pieces of luggage that would fit in the vehicle.
         - **small**: the maximum number of small (cabin baggage in a plane) pieces of luggage that would fit in the vehicle **if all the passengers were carrying small pieces of luggage**.

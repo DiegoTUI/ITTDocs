@@ -59,6 +59,8 @@ description: |
         - `suv`: a Sport Utility Vehicle or similar.
         - `limo`: a limousine or similar.
         - `van`: a van or similar.
+        - `bus`: a bus or similar.
+        - `boat`: a boat.
       - **service**: the kind of service that the customer will receive if he books the vehicle. Could be one of the following values:
         - `standard`: a standard service. Like in a regular taxi or a 'lite' black car.
         - `executive`: a black car with uniformed driver or similar.
@@ -68,13 +70,21 @@ description: |
         - `unlicenced`: drivers NOT holding a cab or minicab/VTC licence.
         - `taxi`: taxi drivers.
         - `black car`: minicab/VTC licence holders.
-      - **badges**: an array of strings holding the extra features of the vehicles. The array could be empty or unexisting (meaning that the vehicle has no extra features), or hold one or several of the following values:
+        - `bus`: bus drivers.
+      - **badges**: an array of strings holding the extra features of the vehicles and drivers. The array could be empty or unexisting (meaning that the vehicle has no extra features), or hold one or several values. The driver badges represent an estimation of the 'quality' of the driver based on his training, rating, licence, languages he/she speaks, etc. The possible values of a badge are the following:
         - `priority`: the assignation of this vehicle will be prioritized with respect to others. This vehicle will be assigned faster.
         - `adapted`: vehicle adapted for customers with reduced mobility.
         - `eco`: electric vehicle.
         - `pet`: the vehicle accepts pets.
-        - `baby`: the vehicle is adapted to carry a baby.
+        - `family`: the vehicle is adapted to carry kids or babies.
         - `wifi`: the vehicle has on board wifi.
+        - `aircon`: the vehicle has air conditioning.
+        - `media`: the vehicle offers entertainment on board.
+        - `snack`: the vehicle offers snacks on board.
+        - `driverbronze`: the driver of the vehicle has a bronze badge.
+        - `driversilver`: the driver of the vehicle has a silver badge.
+        - `drivergold`: the driver of the vehicle has a gold badge.
+        - `driverplatinum`: the driver of the vehicle has a platinum badge.
       - **passengers**: the maximum number of passengers accepted in the vehicle.
       - **luggage**: the maximum number of pieces of luggage that would fit in the vehicle.
         - **small**: the maximum number of small (cabin baggage in a plane) pieces of luggage that would fit in the vehicle **if all the passengers were carrying small pieces of luggage**.

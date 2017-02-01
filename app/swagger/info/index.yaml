@@ -20,6 +20,8 @@ description: |
     ```
     ##**Authentication**
     You have your set of credentials. Now what? For all the operations in the **Booking** and **User** blocks, you will need to send a token. This token is obtained through the `/auth/v1/tokens/new` operation (defined in the **Auth** block). This operation **should only be called once** (if you are NOT using our user management system, you may call it multiple times), the first time your user opens your app. This operation not only returns a token, **but also creates a new anonymous user**, and returns its `userId` along with the token. Once you have this `userId` you just need to call `/auth/v1/tokens/renew` to renew the token when it expires.
+    ##**The Accept-Language Header**
+    There is almost nothing *localized* (in the sense of *language-dependent*) in this API, and those operations that return a *localized* result require an explicit `lang` parameter. Nonetheless, there is some stuff in the booking flow that is *language-dependent*. For example, the SMSs we send to the user to warn about an upcoming prebook. For this reason, you need to include the proper `Accept-Language` header in all your requests when you book a ride with us. If a particular operation requires a specific language parameter, you will need to send it too.
     ##**The Booking Flow**
     Our booking flow is pretty simple and thoroughly documented in the **Booking** block of operations. Here is how it works:
     - Before even starting the booking flow you may want to find out and show to your users where does **TaxiTime has coverage** and which **taxi suppliers** operate in each area. The `/api/v1/areas/available` answers both questions. This is a preliminary request and it's definitely not needed to perform a booking.
